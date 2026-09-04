@@ -16,6 +16,18 @@ Canonical project repositories:
 - `mrojewski/ExcelForge` — product and controlled project state;
 - `mrojewski/ExcelForge-Evidence` — evidence, testing and development traceability.
 
+## Public communication rule
+
+A desired capability is not a product capability until it is implemented and sufficiently validated.
+
+Public communication should distinguish clearly between:
+- capabilities that are available now and supported by evidence;
+- known limitations;
+- areas currently under investigation;
+- aspirations or desired capabilities that are not yet product facts.
+
+Plans, intentions, hypotheses and desired future abilities must not be presented as current product capabilities.
+
 ## Current structure
 
 - `docs/` — source for the public ExcelForge website and GitHub Pages publishing source;
