@@ -4,12 +4,96 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ExcelForge</title>
-  <meta name="description" content="ExcelForge public site — pilot information and project updates.">
+  <meta name="description" content="ExcelForge is an evolving Excel productivity project. Guardian G1 is currently prepared for a technically aware external pilot within documented boundaries.">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    header, section, footer { margin-bottom: 48px; }
+    h1 { font-size: 2.5rem; margin-bottom: 0.25rem; }
+    h2 { margin-top: 0; }
+    .status { font-weight: 600; }
+    .note { border-left: 3px solid currentColor; padding-left: 16px; }
+    ul { padding-left: 1.25rem; }
+    a { color: inherit; }
+  </style>
 </head>
 <body>
-  <main>
+  <header>
     <h1>ExcelForge</h1>
-    <p>Public site under preparation.</p>
+    <p><strong>Practical Excel tools, developed and validated step by step.</strong></p>
+    <p>
+      ExcelForge is an evolving Excel productivity project. We publish product capabilities when they are sufficiently implemented, tested and understood.
+    </p>
+    <p class="note">
+      A desired capability is not presented as a product capability until it is implemented and sufficiently validated.
+    </p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Guardian G1</h2>
+      <p class="status">Current status: external pilot within documented boundaries.</p>
+      <p>
+        Guardian G1 is the first ExcelForge tool prepared for technically aware external pilot use. Its current workflow is delivered as an Excel Add-In with a Quick Access Toolbar launcher and ordinary <code>.xlsx</code> working files.
+      </p>
+      <p>
+        Pilot packaging is platform-specific: Windows uses one <code>.xlam</code> add-in; macOS uses an <code>.xlam</code> add-in together with its Helper and UI dependency.
+      </p>
+    </section>
+
+    <section>
+      <h2>Available now</h2>
+      <ul>
+        <li>Excel Add-In based pilot workflow.</li>
+        <li>Quick Access Toolbar launcher.</li>
+        <li>Validated pilot packaging for Windows and macOS within the tested environments.</li>
+        <li>Validated installation, restart persistence and uninstall/removal paths within the tested environments.</li>
+        <li>Platform-specific deployment guidance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Known limitations</h2>
+      <ul>
+        <li>The first-ever macOS permission and security flow on a machine with no prior Guardian history has not yet been fully validated.</li>
+        <li>Managed or corporate device restrictions, including signing and trust policies, are outside the current pilot validation scope.</li>
+        <li>Some workbook structures require further investigation. A known example is an Excel Table totals row being included in the detected data region.</li>
+        <li>Materially changed future technical revisions may require update-path revalidation.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pilot</h2>
+      <p>
+        The purpose of the pilot is to collect real-use evidence: what works, what fails, where the workflow causes friction and where current assumptions are incomplete.
+      </p>
+      <p>
+        Feedback is evidence for further investigation and development. It is not a promise that a specific future feature will be implemented.
+      </p>
+      <p><strong>Download and feedback channels are being prepared.</strong></p>
+    </section>
+
+    <section>
+      <h2>How we communicate</h2>
+      <ul>
+        <li>Available capabilities are described as available.</li>
+        <li>Known limitations are stated explicitly.</li>
+        <li>Areas under investigation are not presented as finished features.</li>
+        <li>Aspirations and desired future capabilities are not presented as product facts.</li>
+      </ul>
+    </section>
   </main>
+
+  <footer>
+    <p>
+      Public project repository:
+      <a href="https://github.com/mrojewski/ExcelForge-Public">github.com/mrojewski/ExcelForge-Public</a>
+    </p>
+  </footer>
 </body>
 </html>
