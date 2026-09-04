@@ -18,8 +18,8 @@ Canonical project repositories:
 
 ## Current structure
 
-- `site/` — source for the public ExcelForge website;
-- `site/assets/` — website assets;
+- `docs/` — source for the public ExcelForge website and GitHub Pages publishing source;
+- `docs/assets/` — website assets;
 - `public/pilot/` — public materials for pilot users/testers;
 - `public/media/` — reusable public media and communication assets.
 
