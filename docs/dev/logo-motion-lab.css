@@ -1,0 +1,99 @@
+:root {
+  color-scheme: light;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172b20;
+  background: #f7f9f6;
+  --logo-size: 256px;
+  --block-size: calc(var(--logo-size) * .4375); /* 112/256: painted raster block */
+  --depth: calc(var(--block-size) * .18);
+}
+* { box-sizing: border-box; }
+body { margin: 0; line-height: 1.6; }
+main { width: min(1200px, calc(100% - 64px)); margin: 0 auto; padding: 48px 0; }
+p { margin: 0; }
+.eyebrow { color: #536158; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 12px 0; font-size: clamp(32px, 4vw, 44px); font-weight: 600; letter-spacing: -.04em; line-height: 1.2; }
+.intro { max-width: 680px; font-size: 17px; }
+.boundary { margin-top: 12px; color: #536158; font-size: 13px; }
+.controls { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; margin-top: 28px; }
+button { background: #0e6b3a; border: 1px solid #0e6b3a; border-radius: 6px; color: #fff; padding: 12px 20px; font: inherit; font-size: 14px; cursor: pointer; min-height: 46px; }
+button:hover { background: #0b542e; }
+button:disabled { background: #e7eee5; color: #536158; border-color: #c9d4c6; cursor: not-allowed; }
+button:focus-visible { outline: 3px solid #0e6b3a; outline-offset: 5px; }
+.controls p, .status { font-size: 13px; color: #536158; }
+.controls p span { margin: 0 6px; }
+.status { margin: 12px 0 24px; min-height: 42px; }
+.comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+figure { margin: 0; padding: 22px 18px; border: 1px solid #dce4db; border-radius: 10px; background: #f7f9f6; }
+h2 { min-height: 40px; display: flex; align-items: center; gap: 12px; margin: 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .045em; }
+h2 span { display: grid; place-items: center; width: 28px; height: 28px; flex-shrink: 0; border: 1px solid #c9d4c6; border-radius: 4px; font-size: 12px; }
+.stage { position: relative; width: var(--logo-size); height: var(--logo-size); margin: 36px auto 32px; }
+.static-logo { display: block; width: 100%; height: 100%; }
+.mark { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; perspective: 900px; visibility: hidden; }
+.cell { position: relative; width: 100%; height: 100%; }
+.surface { background-image: url("../assets/EF_Block_Guardian_v0.png"); background-size: 200% 200%; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.cell-1 { --face-x: 8.333333333%; --face-y: 8.333333333%; --block-color: #7dcb65; --inset-x: 9.375%; --inset-y: 9.375%; background-position: 0 0; }
+.cell-2 { --face-x: 91.666666667%; --face-y: 8.333333333%; --block-color: #4cbe5b; --inset-x: 3.125%; --inset-y: 9.375%; background-position: 100% 0; }
+.cell-3 { --face-x: 8.333333333%; --face-y: 91.666666667%; --block-color: #26913f; --inset-x: 9.375%; --inset-y: 3.125%; background-position: 0 100%; }
+.cell-4 { --face-x: 91.666666667%; --face-y: 91.666666667%; --block-color: #0e6b3a; --inset-x: 3.125%; --inset-y: 3.125%; background-position: 100% 100%; }
+/* A retains the homepage's complete raster quadrant and edge origins. */
+[data-variant="a"] .cell-1 { transform-origin: left center; }
+[data-variant="a"] .cell-2 { transform-origin: center top; }
+[data-variant="a"] .cell-3 { transform-origin: center bottom; }
+[data-variant="a"] .cell-4 { transform-origin: right center; }
+[data-variant="b"] .surface { transform-origin: center center; }
+/* Never put opacity, filter or overflow clipping on the 3D ancestor chain. */
+[data-variant="c"] .cell, .cube-position, .cube { transform-style: preserve-3d; }
+.cube-position {
+  position: absolute;
+  left: var(--inset-x);
+  top: var(--inset-y);
+  width: var(--block-size);
+  height: var(--block-size);
+  transform: translateZ(calc(var(--depth) * -.5));
+}
+.cube { position: relative; width: 100%; height: 100%; transform-origin: center center 0; }
+.face { position: absolute; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+.face-art {
+  background-image: url("../assets/EF_Block_Guardian_v0.png");
+  background-size: 228.571428571% 228.571428571%; /* 256/112: original painted crop */
+  background-position: var(--face-x) var(--face-y);
+}
+.front { inset: 0; transform: translateZ(calc(var(--depth) * .5)); }
+.side { display: grid; place-items: center; background-color: var(--block-color); }
+.side-glyph { display: block; width: var(--depth); height: var(--depth); }
+.right, .left { width: var(--depth); height: var(--block-size); top: 0; left: calc((var(--block-size) - var(--depth)) * .5); }
+.right { transform: rotateY(90deg) translateZ(calc(var(--block-size) * .5)); }
+.left { transform: rotateY(-90deg) translateZ(calc(var(--block-size) * .5)); }
+.top, .bottom { width: var(--block-size); height: var(--depth); left: 0; top: calc((var(--block-size) - var(--depth)) * .5); }
+.top { transform: rotateX(90deg) translateZ(calc(var(--block-size) * .5)); }
+.bottom { transform: rotateX(-90deg) translateZ(calc(var(--block-size) * .5)); }
+/* The idle/reduced-motion state is the unchanged original raster in every panel. */
+.is-playing .static-logo { visibility: hidden; }
+.is-playing .mark { visibility: visible; }
+figcaption { min-height: 44px; font-size: 14px; }
+footer { margin-top: 28px; max-width: 800px; font-size: 12px; color: #536158; }
+footer p + p { margin-top: 8px; }
+@media (max-width: 1080px) and (min-width: 861px) {
+  :root { --logo-size: 208px; }
+  main { width: calc(100% - 40px); }
+  figure { padding-inline: 14px; }
+  .comparison { gap: 14px; }
+}
+@media (max-width: 860px) {
+  main { width: min(480px, calc(100% - 40px)); padding-top: 32px; }
+  .comparison { grid-template-columns: 1fr; }
+  .controls { position: sticky; top: 0; z-index: 2; background: #f7f9f6; padding-block: 12px; }
+  .controls p { font-size: 12px; }
+  .status { min-height: 4.8em; }
+}
+@media (max-width: 359px) {
+  :root { --logo-size: 208px; }
+  main { width: calc(100% - 32px); }
+  figure { padding-inline: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mark { display: none !important; }
+  .static-logo { visibility: visible !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

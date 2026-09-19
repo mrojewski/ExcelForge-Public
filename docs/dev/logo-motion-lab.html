@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ExcelForge — Animation Lab A/B/C</title>
+  <link rel="icon" href="../assets/EF_Block_Guardian_v0.png" type="image/png">
+  <link rel="stylesheet" href="logo-motion-lab.css">
+  <script src="logo-motion-lab.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">ExcelForge / DEV-only / prototyp</p>
+      <h1>Animation Lab</h1>
+      <p class="intro">Trzy sposoby poruszenia tego samego znaku. Który najlepiej pasuje do ExcelForge?</p>
+      <p class="boundary">Porównanie robocze. Animacja strony głównej pozostaje bez zmian.</p>
+    </header>
+    <div class="controls">
+      <button id="replay" type="button" disabled>Powtórz animacje</button>
+      <p>1,3 s / blok <span aria-hidden="true">·</span> stagger 70 ms <span aria-hidden="true">·</span> jeden przebieg</p>
+    </div>
+    <p id="motion-status" class="status" role="status" aria-live="polite">Statyczny podgląd logo.</p>
+    <div class="comparison">
+      <figure data-variant="a">
+        <h2><span>A</span> Edge / hinge flip</h2>
+        <div class="stage" role="img" aria-label="Logo ExcelForge, wariant A — obrót od krawędzi">
+          <img class="static-logo" src="../assets/EF_Block_Guardian_v0.png" alt="" width="256" height="256">
+          <div class="mark" aria-hidden="true">
+            <div class="cell cell-1 surface"></div><div class="cell cell-2 surface"></div>
+            <div class="cell cell-3 surface"></div><div class="cell cell-4 surface"></div>
+          </div>
+        </div>
+        <figcaption>A — obrót od krawędzi</figcaption>
+      </figure>
+      <figure data-variant="b">
+        <h2><span>B</span> Central axis flat tile</h2>
+        <div class="stage" role="img" aria-label="Logo ExcelForge, wariant B — płaski kafelek, oś centralna">
+          <img class="static-logo" src="../assets/EF_Block_Guardian_v0.png" alt="" width="256" height="256">
+          <div class="mark" aria-hidden="true">
+            <div class="cell cell-1 surface"></div><div class="cell cell-2 surface"></div>
+            <div class="cell cell-3 surface"></div><div class="cell cell-4 surface"></div>
+          </div>
+        </div>
+        <figcaption>B — płaski kafelek, oś centralna</figcaption>
+      </figure>
+      <figure data-variant="c">
+        <h2><span>C</span> Central axis cube</h2>
+        <div class="stage" role="img" aria-label="Logo ExcelForge, wariant C — sześcian, oś centralna">
+          <img class="static-logo" src="../assets/EF_Block_Guardian_v0.png" alt="" width="256" height="256">
+          <div class="mark" aria-hidden="true">
+            <div class="cell cell-1"><div class="cube-position"><div class="cube"><div class="face front face-art"></div><div class="face side right"><span class="side-glyph face-art"></span></div></div></div></div>
+            <div class="cell cell-2"><div class="cube-position"><div class="cube"><div class="face front face-art"></div><div class="face side bottom"><span class="side-glyph face-art"></span></div></div></div></div>
+            <div class="cell cell-3"><div class="cube-position"><div class="cube"><div class="face front face-art"></div><div class="face side top"><span class="side-glyph face-art"></span></div></div></div></div>
+            <div class="cell cell-4"><div class="cube-position"><div class="cube"><div class="face front face-art"></div><div class="face side left"><span class="side-glyph face-art"></span></div></div></div></div>
+          </div>
+        </div>
+        <figcaption>C — sześcian, oś centralna</figcaption>
+      </figure>
+    </div>
+    <footer>
+      <p>W C: front i jedna ściana boczna z tą samą literą. Głębokość 18% szerokości bloku; litera na wąskim boku jest proporcjonalnie mniejsza.</p>
+      <p>Publiczna dystrybucja Guardian G1.1 Pilot nadal nie jest autoryzowana.</p>
+    </footer>
+  </main>
+</body>
+</html>
