@@ -44,6 +44,12 @@ for tag, attrs in page.elements:
 buttons = [a for t, a in page.elements if t == 'button']
 assert len(buttons) == 6 and sum('disabled' in a for a in buttons) == 5
 assert sha256((DOCS / 'assets/EF_Block_Guardian_v0.png').read_bytes()).hexdigest() == 'b9bf927d140acc58e5f58c702065ba91808b652e9d451efb879cdb02db133ddd', 'Approved logo changed'
+assert (DOCS / 'assets/Baloo2-Bold.ttf').is_file(), 'Missing local Baloo 2 asset'
+assert '@font-face' in css and 'Baloo2-Bold.ttf' in css, 'Guardian mark must use its local font asset'
+assert 'guardian-mark' in html and 'guardian-g-top' in html, 'Missing Guardian G1.1 V3 mark'
+assert 'viewBox="0 0 144 184"' in html, 'Guardian mark must retain the V3 module'
+assert 'Mniej utrudnień w pracy z danymi' in html
+assert 'wyników testów' in html
 assert not any(p.suffix.lower() in ('.zip', '.xlam', '.pdf', '.docx') for p in DOCS.rglob('*')), 'Release artifact in website'
 assert '@media(prefers-reduced-motion:reduce)' in css
 assert 'animation:none!important' in css

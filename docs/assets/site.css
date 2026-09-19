@@ -1,3 +1,10 @@
+@font-face {
+  font-family:"Baloo 2";
+  src:url("Baloo2-Bold.ttf") format("truetype");
+  font-style:normal;
+  font-weight:700;
+  font-display:swap
+}
 :root {
   color-scheme:light;
   --ink:#172b20;
@@ -9,7 +16,7 @@
   --block-2:#42bd57;
   --block-3:#22913b;
   --block-4:#0c6b3b;
-  --header-height:82px;
+  --header-height:86px;
   font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:var(--ink);
   background:var(--paper);
@@ -87,7 +94,7 @@ img {
   border-bottom:1px solid var(--line)
 }
 .header-inner {
-  min-height:82px;
+  min-height:86px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -97,7 +104,7 @@ img {
   display:inline-flex;
   align-items:center;
   gap:11px;
-  font-size:20px;
+  font-size:22px;
   font-weight:700;
   letter-spacing:-.04em;
   text-decoration:none;
@@ -111,19 +118,19 @@ nav {
 nav a {
   --marker:var(--block-1);
   position:relative;
-  font-size:13px;
+  font-size:14px;
   font-weight:550;
   text-decoration:none;
   padding:28px 0 28px 13px;
   white-space:nowrap
 }
-nav a:nth-child(4n+2) {
+nav a:nth-child(6n+2),nav a:nth-child(6n) {
   --marker:var(--block-2)
 }
-nav a:nth-child(4n+3) {
+nav a:nth-child(6n+3) {
   --marker:var(--block-3)
 }
-nav a:nth-child(4n+4) {
+nav a:nth-child(6n+4) {
   --marker:var(--block-4)
 }
 nav a:before {
@@ -135,7 +142,7 @@ nav a:before {
   left:0;
   top:calc(50% - 3px);
   background:var(--marker);
-  opacity:0
+  opacity:1
 }
 nav a[aria-current]:before {
   opacity:1;
@@ -184,6 +191,28 @@ nav a:hover {
   grid-template-columns:1fr 1fr;
   perspective:900px
 }
+.guardian-mark {
+  width:144px;
+  margin:0 0 24px
+}
+.guardian-mark svg {
+  display:block;
+  width:100%;
+  height:auto
+}
+.guardian-tile-one { fill:var(--block-1) }
+.guardian-tile-two { fill:var(--block-2) }
+.guardian-tile-three { fill:var(--block-3) }
+.guardian-tile-four { fill:var(--block-4) }
+.guardian-glyph {
+  fill:#fff;
+  font-family:"Baloo 2",ui-sans-serif,sans-serif;
+  font-weight:700
+}
+.guardian-g-base,.guardian-g-top { font-size:76px }
+.guardian-digit { font-size:34px }
+.guardian-dot { font-size:34px }
+.guardian-word { font-size:20px }
 .logo-tile {
   background-image:url("EF_Block_Guardian_v0.png");
   background-size:200% 200%;
@@ -326,9 +355,9 @@ h3 {
 }
 .accent {
   display:block;
-  width:24px;
-  height:5px;
-  border-radius:1px;
+  width:8px;
+  height:8px;
+  border-radius:2px;
   background:var(--block-1);
   margin-bottom:22px
 }
@@ -383,7 +412,7 @@ h3 {
   width:48px;
   height:48px;
   border:1px solid var(--line);
-  border-bottom:3px solid var(--step-color);
+  border-bottom:5px solid var(--step-color);
   border-radius:9px;
   background:#fff;
   font-size:13px;
@@ -686,20 +715,20 @@ h3 {
 }
 @media(max-width:900px) {
   :root {
-    --header-height:72px
+    --header-height:76px
   }
   .header-inner {
-    min-height:72px;
+    min-height:76px;
     flex-wrap:wrap;
     gap:0;
     position:relative
   }
   .brand {
-    font-size:19px
+    font-size:20px
   }
   .brand img {
-    width:32px;
-    height:32px
+    width:36px;
+    height:36px
   }
   .menu-toggle {
     display:flex
@@ -726,7 +755,7 @@ h3 {
     display:flex;
     flex-direction:column;
     align-items:stretch;
-    max-height:calc(100dvh - 72px);
+    max-height:calc(100dvh - 76px);
     overflow-y:auto
   }
   .hero {
@@ -843,9 +872,9 @@ h3 {
   .benefits .accent {
     position:absolute;
     left:0;
-    top:6px;
-    width:5px;
-    height:24px
+    top:8px;
+    width:8px;
+    height:8px
   }
   .benefits p {
     margin-top:8px
