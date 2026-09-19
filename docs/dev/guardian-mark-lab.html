@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>ExcelForge — Guardian G1.1 Mark Lab</title>
+  <style>
+    :root { color-scheme:light; --ef-1:#7BCA62; --ef-2:#42BD57; --ef-3:#22913B; --ef-4:#0C6B3B; --black:#000000; --paper:#F7F9F6; --ink:#111111; --muted:#626262; --line:#DDDDDD; font-family:Arial,Helvetica,sans-serif; background:var(--paper); color:var(--ink) }
+    * { box-sizing:border-box } body { margin:0; line-height:1.6 } main { max-width:1180px; width:calc(100% - 64px); margin:0 auto; padding:40px 0 } p { margin:0 }
+    .eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:11px; color:var(--muted) } h1 { font-size:clamp(30px,4vw,42px); letter-spacing:-.035em; line-height:1.2; margin:12px 0 } .intro { max-width:760px; font-size:16px }
+    .contract,.type-comparison { margin:24px 0 12px; padding:16px 20px; border:1px solid var(--line); border-radius:6px; font-size:14px } .contract strong,.readout { font-variant-numeric:tabular-nums } .contract p+p { margin-top:6px; color:var(--muted); font-size:12px } #qa-result { font-size:13px; color:var(--muted); min-height:42px; margin:0 0 18px }
+    .type-comparison h2 { font-size:14px; margin:0 0 12px } .type-comparison>p { color:var(--muted); font-size:12px; margin-bottom:14px } .type-options { display:flex; gap:20px; flex-wrap:wrap } .type-option { margin:0; min-width:144px } .type-option figcaption { color:var(--muted); font-size:11px; margin-bottom:7px }
+    .variants { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px } .variant { margin:0; border:1px solid var(--line); padding:24px; border-radius:10px; min-width:0 } .variant>figcaption { font-size:15px; font-weight:700; margin-bottom:24px } .scale-layout { display:grid; grid-template-columns:216px 144px; gap:32px; justify-content:space-between; align-items:start } .scale-label { font-size:11px; color:var(--muted); margin-bottom:10px; font-variant-numeric:tabular-nums } .smaller-scales { display:flex; flex-direction:column; gap:20px }
+    .sample { width:var(--sample-width); height:calc(var(--sample-width) * 184 / 144) } .mark { display:block; width:100%; height:100%; overflow:visible } .readout { border-top:1px solid var(--line); margin-top:24px; padding-top:14px; font-size:11px; color:var(--muted) } footer { max-width:820px; margin-top:24px; color:var(--muted); font-size:12px } footer p+p { margin-top:8px }
+    @media (max-width:1040px) { .scale-layout { grid-template-columns:1fr; gap:24px } .scale-example { justify-self:center } .smaller-scales { flex-direction:row; align-items:flex-start; justify-content:center; gap:28px } }
+    @media (max-width:650px) { main { width:calc(100% - 32px); padding-top:28px } .variants { grid-template-columns:1fr; gap:20px } .variant { padding:20px 16px } .contract,.type-comparison { padding:14px } .smaller-scales { gap:24px } #qa-result { min-height:63px } }
+  </style>
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">ExcelForge / DEV-only / prototyp konstrukcji znaku</p><h1>Guardian G1.1 — Mark Lab</h1><p class="intro">Pięć wariantów, wspólna geometria oraz cięższe systemowe liternictwo. Materiał do decyzji właściciela.</p></header>
+  <section class="contract" aria-label="Kontrakt geometrii"><strong>W = 144 · S = 44 · g = 6 &nbsp; → &nbsp; 3 × 44 + 2 × 6 = 144</strong><p>G: 144 × 96. Pasek A/B/C/E: 144 × 32 (⅓ wysokości G). Tacka D: 144 × 16.</p><p>Każdy znak jest pojedynczym SVG o viewBox 144 × 184. D zachowuje wspólny obszar i odstępy, z wolnym miejscem pod niższą tacką.</p></section>
+  <p id="qa-result" role="status">Pomiar DOM wymaga JavaScript.</p>
+  <section class="type-comparison" aria-labelledby="type-heading"><h2 id="type-heading">Porównanie lokalnych krojów systemowych</h2><p>Ten sam mono-darkowy znak B, ta sama geometria i paleta. Wariant roboczy w pięciu kartach: Avenir Heavy.</p><div id="type-options" class="type-options"></div></section>
+  <section id="variants" class="variants" aria-label="Warianty znaku"></section>
+  <footer><p>Paleta EF: #7BCA62 / #42BD57 / #22913B / #0C6B3B. Wariant E używa celowo czerni #000000. Pozostałe kolory służą wyłącznie neutralnemu tłu i tekstowi.</p><p>To eksperyment konstrukcji znaku. Homepage i Animation Lab nie są zmieniane. Publiczna dystrybucja nadal nie jest autoryzowana.</p></footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const p={one:'#7BCA62',two:'#42BD57',three:'#22913B',four:'#0C6B3B',black:'#000000',paper:'#F7F9F6',white:'#FFFFFF'};
+  const fonts={candidate1:{label:'Avenir Heavy',family:"Avenir, 'Helvetica Neue', Arial, sans-serif",weight:900},candidate2:{label:'Avenir Black',family:"Avenir, 'Helvetica Neue', Arial, sans-serif",weight:800},candidate3:{label:'Helvetica Neue Bold',family:"'Helvetica Neue', Arial, sans-serif",weight:700}};
+  const variants=[
+    {id:'a',label:'A — EF Color / Guardian',fill:[p.one,p.three,p.two,p.three,p.four],glyph:p.white,font:'candidate1'},
+    {id:'b',label:'B — Mono Dark / Guardian',fill:Array(5).fill(p.four),glyph:p.white,font:'candidate1'},
+    {id:'c',label:'C — Outline / Guardian',fill:Array(5).fill(p.paper),stroke:p.four,glyph:p.four,font:'candidate1'},
+    {id:'d',label:'D — Mono Dark / Tacka',fill:Array(5).fill(p.four),glyph:p.white,tray:true,font:'candidate1'},
+    {id:'e',label:'E — Mono Black / Guardian',fill:Array(5).fill(p.black),glyph:p.white,font:'candidate1'}
+  ];
+  const shell=(w,h,rt=2,rb=2)=>{const l=1,r=w-1,b=h-1,t=1,a=rt-1,c=rb-1;return `M ${l+a} ${t} H ${r-a} Q ${r} ${t} ${r} ${t+a} V ${b-c} Q ${r} ${b} ${r-c} ${b} H ${l+c} Q ${l} ${b} ${l} ${b-c} V ${t+a} Q ${l} ${t} ${l+a} ${t} Z`};
+  const tile=(role,x,y,w,h,text,fill,glyph,font,rt=2,rb=2,stroke=fill)=>{const dot=role==='dot';return `<g class="tile tile--${role}" data-w="${w}" data-h="${h}" transform="translate(${x} ${y})"><rect class="measure" width="${w}" height="${h}" fill="none" stroke="none"/><path class="shell" d="${shell(w,h,rt,rb)}" fill="${fill}" stroke="${stroke}" stroke-width="2"/>${text?`<text class="glyph glyph--${role}" x="${w/2}" y="${dot?30:h/2}" text-anchor="middle" dominant-baseline="${dot?'alphabetic':'central'}" fill="${glyph}" font-family="${font.family}" font-weight="${role==='bar'?800:font.weight}" font-size="${role==='g'?76:role==='bar'?20:34}">${text}</text>`:''}</g>`};
+  function mark(v,width,fontId){const font=fonts[fontId||v.font],h=v.tray?16:32,[g,d1,dot,d2,bar]=v.fill,stroke=v.stroke;return `<div class="sample" data-width="${width}" data-variant="${v.id}" style="--sample-width:${width}px" role="img" aria-label="${v.label}, szerokość ${width} px"><svg class="mark" viewBox="0 0 144 184" aria-hidden="true"><g class="mark-geometry" data-w="144" data-h="184">${tile('g',0,0,144,96,'G',g,v.glyph,font,12,2,stroke||g)}${tile('digit-1',0,102,44,44,'1',d1,v.glyph,font,2,2,stroke||d1)}${tile('dot',50,102,44,44,'.',dot,v.glyph,font,2,2,stroke||dot)}${tile('digit-2',100,102,44,44,'1',d2,v.glyph,font,2,2,stroke||d2)}${tile('bar',0,152,144,h,v.tray?'':'Guardian',bar,v.glyph,font,2,12,stroke||bar)}</g></svg></div>`}
+  const scales=[216,144,54];
+  document.querySelector('#variants').innerHTML=variants.map(v=>`<figure class="variant"><figcaption>${v.label}</figcaption><div class="scale-layout"><div class="scale-example"><p class="scale-label">216 px</p>${mark(v,216)}</div><div class="smaller-scales">${scales.slice(1).map(s=>`<div class="scale-example"><p class="scale-label">${s} px</p>${mark(v,s)}</div>`).join('')}</div></div><p class="readout">W 144 · S 44 · g 6 · G 96 · ${v.tray?'tacka 16':'pasek 32'}</p></figure>`).join('');
+  const b=variants[1]; document.querySelector('#type-options').innerHTML=Object.entries(fonts).map(([id,font])=>`<figure class="type-option"><figcaption>${font.label}</figcaption>${mark(b,144,id)}</figure>`).join('');
+  const output=document.querySelector('#qa-result'); const rgb=hex=>{const n=parseInt(hex.slice(1),16);return `rgb(${n>>16}, ${n>>8&255}, ${n&255})`}; const near=(a,b,t)=>Math.abs(a-b)<=t;
+  function qa(){const samples=[...document.querySelectorAll('#variants .sample')];const checks=samples.map(sample=>{const r=e=>e.getBoundingClientRect(),svg=r(sample.querySelector('svg')),g=r(sample.querySelector('.tile--g .measure')),first=r(sample.querySelector('.tile--digit-1 .measure')),dot=r(sample.querySelector('.tile--dot .measure')),second=r(sample.querySelector('.tile--digit-2 .measure')),bar=r(sample.querySelector('.tile--bar .measure')),unit=g.width/144,t=Math.max(.01,unit*.01),v=variants.find(x=>x.id===sample.dataset.variant),a=dot.left-first.right,b=second.left-dot.right,c=first.top-g.bottom,d=bar.top-first.bottom,source=[...sample.querySelectorAll('.tile')].every(e=>Number(e.dataset.w)>0&&Number(e.dataset.h)>0),geometry=source&&near(g.width,first.width+dot.width+second.width+a+b,t)&&near(g.width,bar.width,t)&&[first,dot,second].every(x=>near(x.width,x.height,t))&&[a,b,c,d].every(x=>near(x,6*unit,t))&&near(g.height,96*unit,t)&&near(bar.height,(v.tray?16:32)*unit,t)&&near(svg.width,144*unit,t)&&near(svg.height,184*unit,t),allowed=v.fill.map(rgb).concat(v.stroke?[rgb(v.stroke)]:[]).concat([rgb(v.glyph)]),actual=[...sample.querySelectorAll('.shell,.glyph')].flatMap(e=>{const z=getComputedStyle(e);return e.classList.contains('shell')?[z.fill,z.stroke]:[z.fill]}),colors=actual.every(x=>allowed.includes(x));sample.dataset.geometry=geometry?'pass':'fail';sample.dataset.palette=colors?'pass':'fail';return geometry&&colors});const pass=checks.every(Boolean);output.dataset.result=pass?'pass':'fail';output.textContent=pass?'QA geometrii i palety: PASS — 15 pomiarów DOM. W = 144, S = 44, g = 6; wszystkie warianty A–E zachowują wspólny moduł. D ma celowo tackę 16.':'QA geometrii i palety: FAIL — sprawdź dane wariantu.'}
+  window.addEventListener('resize',qa);if(document.fonts?.ready)document.fonts.ready.then(qa);else qa();
+})();
+</script>
+</body>
+</html>
