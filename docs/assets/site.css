@@ -359,8 +359,8 @@ h3 {
 }
 .accent {
   display:block;
-  width:8px;
-  height:8px;
+  width:10px;
+  height:10px;
   border-radius:2px;
   background:var(--block-1);
   margin-bottom:22px
@@ -624,7 +624,12 @@ h3 {
   width:100%;
   height:auto
 }
-.guardian-mono-tile {
+.guardian-outline-tile {
+  fill:transparent;
+  stroke:var(--block-4);
+  stroke-width:2px
+}
+.guardian-outline-glyph {
   fill:var(--block-4)
 }
 .pilot-copy p {
@@ -736,6 +741,9 @@ h3 {
   }
   .hero {
     align-items:start
+  }
+  .hero-mark {
+    transform:translateY(-14px)
   }
 
 }
@@ -921,8 +929,8 @@ h3 {
     position:absolute;
     left:0;
     top:8px;
-    width:8px;
-    height:8px
+    width:10px;
+    height:10px
   }
   .benefits p {
     margin-top:8px
