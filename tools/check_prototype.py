@@ -49,10 +49,13 @@ assert '@font-face' in css and 'Baloo2-Bold.ttf' in css, 'Guardian mark must use
 assert 'guardian-mark' in html and 'guardian-g-top' in html, 'Missing Guardian G1.1 V3 mark'
 assert 'viewBox="0 0 144 184"' in html, 'Guardian mark must retain the V3 module'
 guardian_glyphs = [a for tag, a in page.elements if tag == 'text' and a.get('class', '').startswith('guardian-glyph')]
-assert len(guardian_glyphs) == 6 and all(a.get('fill') == '#FFFFFF' for a in guardian_glyphs), 'Guardian glyphs must directly declare white fill'
+assert len(guardian_glyphs) == 12 and all(a.get('fill') == '#FFFFFF' for a in guardian_glyphs), 'Guardian glyphs must directly declare white fill'
 assert 'transform-origin:center center' in css and not re.search(r'transform-origin:(left|right|center top|center bottom)', css), 'EF tiles must use central animation axes'
 assert all(frame in css for frame in ('@keyframes flip-left', 'rotateY(-85deg)', '@keyframes flip-top', 'rotateX(85deg)', '@keyframes flip-bottom', 'rotateX(-85deg)', '@keyframes flip-right', 'rotateY(85deg)')), 'EF tile animation directions changed'
 assert 'font-size:15px' in css and 'font-weight:600' in css and 'width:7px' in css and 'height:7px' in css, 'Navigation readability correction missing'
+assert 'font-size:16px' in css and '@media(max-width:1100px)' in css, 'Wide desktop navigation sizing missing'
+assert 'pilot-guardian-mark' in html and 'guardian-mono-tile' in html, 'Missing secondary mono Guardian mark in Pilot'
+assert css.count('--limit-color:var(--block-') == 4 and 'border-bottom:4px solid var(--limit-color)' in css, 'Limitations must reuse the four-step color system'
 assert 'Mniej utrudnień w pracy z danymi' in html
 assert 'wyników testów' in html
 assert not any(p.suffix.lower() in ('.zip', '.xlam', '.pdf', '.docx') for p in DOCS.rglob('*')), 'Release artifact in website'
