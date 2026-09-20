@@ -118,8 +118,8 @@ nav {
 nav a {
   --marker:var(--block-1);
   position:relative;
-  font-size:14px;
-  font-weight:550;
+  font-size:15px;
+  font-weight:600;
   text-decoration:none;
   padding:28px 0 28px 13px;
   white-space:nowrap
@@ -135,12 +135,12 @@ nav a:nth-child(6n+4) {
 }
 nav a:before {
   content:"";
-  width:6px;
-  height:6px;
+  width:7px;
+  height:7px;
   border-radius:1px;
   position:absolute;
   left:0;
-  top:calc(50% - 3px);
+  top:calc(50% - 3.5px);
   background:var(--marker);
   opacity:1
 }
@@ -191,9 +191,16 @@ nav a:hover {
   grid-template-columns:1fr 1fr;
   perspective:900px
 }
+.product-identity {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px
+}
 .guardian-mark {
-  width:144px;
-  margin:0 0 24px
+  width:60px;
+  margin:0;
+  flex:0 0 auto
 }
 .guardian-mark svg {
   display:block;
@@ -219,21 +226,18 @@ nav a:hover {
   backface-visibility:hidden
 }
 .tile-1 {
-  background-position:0 0;
-  transform-origin:left center
+  background-position:0 0
 }
 .tile-2 {
-  background-position:100% 0;
-  transform-origin:center top
+  background-position:100% 0
 }
 .tile-3 {
-  background-position:0 100%;
-  transform-origin:center bottom
+  background-position:0 100%
 }
 .tile-4 {
-  background-position:100% 100%;
-  transform-origin:right center
+  background-position:100% 100%
 }
+.logo-tile { transform-origin:center center }
 @media(prefers-reduced-motion:no-preference) {
   .tile-1 {
     animation:flip-left .9s both
@@ -773,7 +777,8 @@ h3 {
     font-size:16px
   }
   .product {
-    font-size:14px
+    font-size:14px;
+    margin:0
   }
   .benefits {
     gap:24px
@@ -828,7 +833,7 @@ h3 {
     max-width:440px
   }
   .product {
-    margin-bottom:22px;
+    margin:0;
     font-size:15px
   }
   .product em {
