@@ -482,6 +482,29 @@ h3 {
   letter-spacing:.09em;
   margin-bottom:20px
 }
+.platform-heading {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px
+}
+.platform-heading .card-label {
+  margin:0
+}
+.platform-identifier {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border:1.5px solid var(--block-4);
+  border-radius:7px;
+  color:var(--block-4);
+  font-size:15px;
+  font-weight:700;
+  line-height:1;
+  flex:0 0 auto
+}
 .download-card h3 {
   font-size:23px
 }
@@ -613,7 +636,8 @@ h3 {
 .pilot-heading {
   display:flex;
   flex-direction:column;
-  align-items:flex-start
+  align-items:flex-start;
+  padding-left:14px
 }
 .pilot-guardian-mark {
   width:86px;
