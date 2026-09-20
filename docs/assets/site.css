@@ -240,16 +240,16 @@ nav a:hover {
 .logo-tile { transform-origin:center center }
 @media(prefers-reduced-motion:no-preference) {
   .tile-1 {
-    animation:flip-left .9s both
+    animation:flip-left 1.8s both
   }
   .tile-2 {
-    animation:flip-top .9s .05s both
+    animation:flip-top 1.8s .08s both
   }
   .tile-3 {
-    animation:flip-bottom .9s .1s both
+    animation:flip-bottom 1.8s .16s both
   }
   .tile-4 {
-    animation:flip-right .9s .15s both
+    animation:flip-right 1.8s .24s both
   }
 
 }
