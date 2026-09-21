@@ -37,4 +37,4 @@ Plans, intentions, hypotheses and desired future abilities must not be presented
 
 ## Distribution
 
-The final mechanism for distributing ExcelForge Guardian builds is intentionally not fixed yet. A dedicated download directory is not part of the initial repository structure until the release/distribution model is decided.
+ExcelForge Guardian G1.1 Pilot packages are distributed as verified assets of the canonical GitHub Release. The public site links directly to those Release assets; ZIP files are not duplicated in this repository.
