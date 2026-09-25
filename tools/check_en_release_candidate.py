@@ -35,6 +35,7 @@ en_html, en_page = parse(EN / "index.html")
 ids = [attrs["id"] for _, attrs in en_page.elements if "id" in attrs]
 assert len(ids) == len(set(ids)), "Duplicate EN IDs"
 assert ("html", {"lang": "en"}) in en_page.elements
+assert not any(tag == 'meta' and attrs.get('name') == 'robots' and 'noindex' in attrs.get('content', '') for tag, attrs in en_page.elements), 'EN homepage must be indexable'
 assert not re.search(r"[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]", en_html), "Polish copy remains in EN homepage"
 assert "href=\"../index.html\" lang=\"pl\"" in en_html, "Missing EN-to-PL switch"
 assert "href=\"en/index.html\" lang=\"en\"" in pl_html, "Missing PL-to-EN switch"
@@ -49,6 +50,11 @@ assert WINDOWS_GUIDE in en_html and MACOS_GUIDE in en_html, "Guide release URLs 
 assert '../guides/' not in en_html, "Local guide fixture link remains"
 assert "The English documents are informational translations; their Polish-language versions are authoritative." in en_html
 assert 'href="terms.html"' in en_html and 'href="privacy.html"' in en_html
+assert 'Guardian G1.1 Pilot — controlled Excel data splitting for Windows and macOS.' in en_html
+assert '<title>Guardian G1.1 Pilot — controlled Excel data splitting | ExcelForge</title>' in en_html
+assert '<link rel="canonical" href="https://excelforge.eu/en/">' in en_html
+assert '<link rel="alternate" hreflang="pl" href="https://excelforge.eu/">' in en_html
+assert '<link rel="alternate" hreflang="en" href="https://excelforge.eu/en/">' in en_html
 
 allowed_external = {
     RELEASE_TAG,
@@ -70,13 +76,13 @@ for tag, attrs in en_page.elements:
             assert (EN / target).resolve().is_file(), f'Missing EN local link: {target}'
         else:
             assert target in allowed_external, f'Unexpected EN link: {target}'
-    if tag in ('script', 'img', 'link'):
+    if tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
         target = attrs.get('src', attrs.get('href', ''))
         assert target.startswith('../assets/'), f'Unexpected EN asset path: {target}'
         assert (EN / target).resolve().is_file(), f'Missing EN asset: {target}'
 
 assert sha256((DOCS / 'licencja.html').read_bytes()).hexdigest() == 'd128e776246ae2d801c69c4ffeedd3b401c18cdb0011dbe0ae52f472703fb630', 'Terms PL baseline changed'
-assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == 'bb921b60a6b30faaace88ff2ce3bcdd1a5bedbfe8799f3567d828a32e4253db6', 'Privacy PL baseline changed'
+assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == '73277cb5b7058bf5961d77f42715aa6d200ff540db406a0d23f44c256f001997', 'Privacy PL baseline changed'
 
 for pl_name, en_name, authority_link, title in (
     ('licencja.html', 'terms.html', '../licencja.html', 'Terms of Use'),

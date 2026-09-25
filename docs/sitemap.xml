@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://excelforge.eu/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://excelforge.eu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://excelforge.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://excelforge.eu/"/>
+  </url>
+  <url>
+    <loc>https://excelforge.eu/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://excelforge.eu/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://excelforge.eu/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://excelforge.eu/"/>
+  </url>
+</urlset>
