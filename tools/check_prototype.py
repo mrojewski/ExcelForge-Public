@@ -27,7 +27,7 @@ assert len(ids) == len(set(ids)), 'Duplicate IDs'
 assert ('html', {'lang': 'pl'}) in page.elements
 assert not re.search(r'Guardian G1(?!\.1)', html), 'Stale product name'
 assert 'Pakiety Guardian G1.1 Pilot są dostępne dla Windows i macOS.' in html
-assert any(t == 'meta' and a.get('name') == 'robots' and a.get('content') == 'noindex, nofollow' for t, a in page.elements)
+assert not any(t == 'meta' and a.get('name') == 'robots' and 'noindex' in a.get('content', '') for t, a in page.elements), 'PL homepage must be indexable'
 expected_external_links = {
     'https://github.com/mrojewski/ExcelForge-Public/releases/tag/guardian-g1-1-pilot',
     'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_Windows_Pilot.zip',
@@ -47,7 +47,7 @@ for tag, attrs in page.elements:
         else:
             assert target in expected_external_links, f'Unexpected active link: {target}'
         assert 'download' not in attrs
-    if tag in ('script', 'img', 'link'):
+    if tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
         target = attrs.get('src', attrs.get('href', ''))
         assert target.startswith('assets/'), f'External/unexpected asset: {target}'
         assert (DOCS / target).is_file(), f'Missing asset: {target}'
@@ -55,6 +55,11 @@ assert all(url in html for url in expected_external_links), 'Missing approved pu
 assert 'https://github.com/mrojewski/ExcelForge/releases/' not in html, 'Private repository link exposed'
 assert html.count('Pobierz pakiet') == 2, 'Exactly two package downloads must be exposed'
 assert 'class="language-switch"' in html, 'Missing PL/EN switch'
+assert 'Guardian G1.1 Pilot — kontrolowany podział danych w Excelu dla Windows i macOS.' in html
+assert '<title>Guardian G1.1 Pilot — kontrolowany podział danych w Excelu | ExcelForge</title>' in html
+assert '<link rel="canonical" href="https://excelforge.eu/">' in html
+assert '<link rel="alternate" hreflang="pl" href="https://excelforge.eu/">' in html
+assert '<link rel="alternate" hreflang="en" href="https://excelforge.eu/en/">' in html
 assert 'nie jest jeszcze autoryzowana' not in html, 'Stale pre-publication wording'
 assert sha256((DOCS / 'assets/EF_Block_Guardian_v0.png').read_bytes()).hexdigest() == 'b9bf927d140acc58e5f58c702065ba91808b652e9d451efb879cdb02db133ddd', 'Approved logo changed'
 assert (DOCS / 'assets/Baloo2-Bold.ttf').is_file(), 'Missing local Baloo 2 asset'
