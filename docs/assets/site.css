@@ -110,6 +110,11 @@ img {
   text-decoration:none;
   flex-shrink:0
 }
+.header-actions {
+  display:flex;
+  align-items:center;
+  gap:20px
+}
 nav {
   display:flex;
   align-items:center;
@@ -150,6 +155,25 @@ nav a[aria-current]:before {
 }
 nav a:hover {
   text-decoration:underline
+}
+.language-switch {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:650;
+  letter-spacing:.08em
+}
+.language-switch a {
+  text-decoration:none
+}
+.language-switch a:hover {
+  text-decoration:underline
+}
+.language-switch [aria-current] {
+  color:var(--ink)
 }
 .menu-toggle {
   align-items:center;
@@ -467,14 +491,15 @@ h3 {
 }
 .download-grid {
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:24px
 }
 .download-card {
   background:var(--paper);
   border:1px solid #d5dfd3;
   border-radius:12px;
-  padding:32px
+  padding:32px;
+  min-width:0
 }
 .card-label {
   font-size:12px;
@@ -545,6 +570,11 @@ h3 {
   margin:19px 0 0;
   padding-inline:16px;
   font-size:13px
+}
+.download-card .future-video span {
+  white-space:normal;
+  overflow-wrap:anywhere;
+  text-align:right
 }
 .installation-note {
   margin:24px 0 0;
@@ -772,6 +802,9 @@ h3 {
   .header-inner {
     gap:20px
   }
+  .header-actions {
+    gap:14px
+  }
   .hero {
     gap:48px
   }
@@ -799,6 +832,10 @@ h3 {
   }
   .menu-toggle {
     display:flex
+  }
+  .header-actions {
+    margin-left:auto;
+    gap:14px
   }
   nav {
     width:100%;
