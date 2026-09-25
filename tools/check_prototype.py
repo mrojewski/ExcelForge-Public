@@ -29,10 +29,11 @@ assert not re.search(r'Guardian G1(?!\.1)', html), 'Stale product name'
 assert 'Pakiety Guardian G1.1 Pilot są dostępne dla Windows i macOS.' in html
 assert any(t == 'meta' and a.get('name') == 'robots' and a.get('content') == 'noindex, nofollow' for t, a in page.elements)
 expected_external_links = {
-    'https://github.com/mrojewski/ExcelForge/releases/tag/guardian-g1-1-pilot',
-    'https://github.com/mrojewski/ExcelForge/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_Windows_Pilot.zip',
-    'https://github.com/mrojewski/ExcelForge/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_macOS_Pilot.zip',
+    'https://github.com/mrojewski/ExcelForge-Public/releases/tag/guardian-g1-1-pilot',
+    'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_Windows_Pilot.zip',
+    'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_macOS_Pilot.zip',
 }
+expected_local_links = {'licencja.html', 'prywatnosc.html', 'en/index.html'}
 for tag, attrs in page.elements:
     if tag == 'a':
         target = attrs.get('href', '')
@@ -41,6 +42,8 @@ for tag, attrs in page.elements:
             assert target[1:] in ids, f'Missing anchor: {target}'
         elif target.startswith('mailto:'):
             assert target.split('?')[0] == 'mailto:support@excelforge.eu', f'Unexpected mail link: {target}'
+        elif target in expected_local_links:
+            assert (DOCS / target).is_file(), f'Missing local link: {target}'
         else:
             assert target in expected_external_links, f'Unexpected active link: {target}'
         assert 'download' not in attrs
@@ -49,7 +52,9 @@ for tag, attrs in page.elements:
         assert target.startswith('assets/'), f'External/unexpected asset: {target}'
         assert (DOCS / target).is_file(), f'Missing asset: {target}'
 assert all(url in html for url in expected_external_links), 'Missing approved public release or package link'
+assert 'https://github.com/mrojewski/ExcelForge/releases/' not in html, 'Private repository link exposed'
 assert html.count('Pobierz pakiet') == 2, 'Exactly two package downloads must be exposed'
+assert 'class="language-switch"' in html, 'Missing PL/EN switch'
 assert 'nie jest jeszcze autoryzowana' not in html, 'Stale pre-publication wording'
 assert sha256((DOCS / 'assets/EF_Block_Guardian_v0.png').read_bytes()).hexdigest() == 'b9bf927d140acc58e5f58c702065ba91808b652e9d451efb879cdb02db133ddd', 'Approved logo changed'
 assert (DOCS / 'assets/Baloo2-Bold.ttf').is_file(), 'Missing local Baloo 2 asset'
