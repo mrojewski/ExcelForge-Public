@@ -76,7 +76,7 @@ for tag, attrs in en_page.elements:
         assert (EN / target).resolve().is_file(), f'Missing EN asset: {target}'
 
 assert sha256((DOCS / 'licencja.html').read_bytes()).hexdigest() == 'd128e776246ae2d801c69c4ffeedd3b401c18cdb0011dbe0ae52f472703fb630', 'Terms PL baseline changed'
-assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == 'bb921b60a6b30faaace88ff2ce3bcdd1a5bedbfe8799f3567d828a32e4253db6', 'Privacy PL baseline changed'
+assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == 'a47a860d81d2890500630f942f027b3453bfeb29839f44f46eb70d31cbecefb6', 'Privacy PL baseline changed'
 
 for pl_name, en_name, authority_link, title in (
     ('licencja.html', 'terms.html', '../licencja.html', 'Terms of Use'),
@@ -108,5 +108,11 @@ assert 'only Marcin Rojewski has access' in privacy
 assert 'Zoho Mail in a European data centre' in privacy
 assert 'Standard Contractual Clauses' in privacy
 assert 'https://www.zoho.com/privacy/privacy-faq.html' in privacy
+assert 'Cloudflare Web Analytics' in privacy
+assert 'Cloudflare Customer DPA' in privacy
+assert 'custom events, forms, remarketing, or user profiling' in privacy
+for page in DOCS.rglob('*.html'):
+    source = page.read_text()
+    assert 'static.cloudflareinsights.com' not in source and 'data-cf-beacon' not in source, f'Manual Cloudflare beacon found in Pages source: {page.relative_to(DOCS)}'
 assert not any(path.suffix.lower() in ('.zip', '.xlam', '.pdf', '.docx') for path in DOCS.rglob('*')), 'Release artifact found in website tree'
-print('PASS: EN/PL structure, current legal baselines, language authority, intended Release URLs, and clean Pages boundary.')
+print('PASS: EN/PL structure, current legal and Cloudflare-analytics baselines, language authority, intended Release URLs, and clean Pages boundary.')
