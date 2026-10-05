@@ -6,6 +6,8 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
+CLOUDFLARE_BEACON = 'https://static.cloudflareinsights.com/beacon.min.js'
+CLOUDFLARE_TOKEN = '{"token": "9d6a7c7414d14004b4507595e54a5091"}'
 
 
 class Page(HTMLParser):
@@ -49,10 +51,15 @@ for tag, attrs in page.elements:
         assert 'download' not in attrs
     if tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
         target = attrs.get('src', attrs.get('href', ''))
+        if tag == 'script' and target == CLOUDFLARE_BEACON:
+            assert attrs.get('type') == 'module' and attrs.get('data-cf-beacon') == CLOUDFLARE_TOKEN, 'Unexpected Cloudflare Web Analytics beacon'
+            continue
         assert target.startswith('assets/'), f'External/unexpected asset: {target}'
         assert (DOCS / target).is_file(), f'Missing asset: {target}'
 assert all(url in html for url in expected_external_links), 'Missing approved public release or package link'
 assert 'https://github.com/mrojewski/ExcelForge/releases/' not in html, 'Private repository link exposed'
+assert html.count(CLOUDFLARE_BEACON) == 1 and html.count('data-cf-beacon') == 1, 'PL homepage must contain exactly one Cloudflare Web Analytics beacon'
+assert html.index(CLOUDFLARE_BEACON) > html.index('</footer>') and html.index(CLOUDFLARE_BEACON) < html.index('</body>'), 'Cloudflare beacon must be placed after the page footer'
 assert html.count('Pobierz pakiet') == 2, 'Exactly two package downloads must be exposed'
 assert 'class="language-switch"' in html, 'Missing PL/EN switch'
 assert 'Guardian G1.1 Pilot — kontrolowany podział danych w Excelu dla Windows i macOS.' in html

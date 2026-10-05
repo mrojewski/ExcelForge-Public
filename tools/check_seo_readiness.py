@@ -7,6 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / 'docs'
 HOME = 'https://excelforge.eu/'
 EN_HOME = 'https://excelforge.eu/en/'
+CLOUDFLARE_BEACON = 'https://static.cloudflareinsights.com/beacon.min.js'
+CLOUDFLARE_TOKEN = '{"token": "9d6a7c7414d14004b4507595e54a5091"}'
 
 
 class Page(HTMLParser):
@@ -44,6 +46,9 @@ for items, canonical in ((pl, HOME), (en, EN_HOME)):
     assert any(tag == 'meta' and attrs.get('property') == 'og:type' and attrs.get('content') == 'website' for tag, attrs in items), 'Missing Open Graph website type'
     assert any(tag == 'meta' and attrs.get('property') == 'og:site_name' and attrs.get('content') == 'ExcelForge' for tag, attrs in items), 'Missing Open Graph site name'
     assert any(tag == 'meta' and attrs.get('property') == 'og:url' and attrs.get('content') == canonical for tag, attrs in items), 'Open Graph URL differs from canonical'
+    beacons = [attrs for tag, attrs in items if tag == 'script' and attrs.get('src') == CLOUDFLARE_BEACON]
+    assert len(beacons) == 1, 'Homepage must contain exactly one Cloudflare Web Analytics beacon'
+    assert beacons[0].get('type') == 'module' and beacons[0].get('data-cf-beacon') == CLOUDFLARE_TOKEN, 'Cloudflare Web Analytics beacon differs from dashboard setup'
 
 for name in ('licencja.html', 'prywatnosc.html', 'en/terms.html', 'en/privacy.html'):
     items = elements(name)

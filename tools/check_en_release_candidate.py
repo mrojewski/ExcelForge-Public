@@ -12,6 +12,8 @@ RELEASE_TAG = f"{PUBLIC_RELEASE}/tag/guardian-g1-1-pilot"
 RELEASE_DOWNLOAD = f"{PUBLIC_RELEASE}/download/guardian-g1-1-pilot"
 WINDOWS_GUIDE = f"{RELEASE_DOWNLOAD}/ExcelForge_Guardian_G1_1_Windows_Installation_Pilot_EN_rev1_0_FINAL.pdf"
 MACOS_GUIDE = f"{RELEASE_DOWNLOAD}/ExcelForge_Guardian_G1_1_macOS_Installation_Pilot_EN_rev1_0_FINAL.pdf"
+CLOUDFLARE_BEACON = "https://static.cloudflareinsights.com/beacon.min.js"
+CLOUDFLARE_TOKEN = "9d6a7c7414d14004b4507595e54a5091"
 
 
 class Page(HTMLParser):
@@ -76,13 +78,16 @@ for tag, attrs in en_page.elements:
             assert (EN / target).resolve().is_file(), f'Missing EN local link: {target}'
         else:
             assert target in allowed_external, f'Unexpected EN link: {target}'
+    if tag == 'script' and attrs.get('src') == CLOUDFLARE_BEACON:
+        assert attrs.get('type') == 'module', 'Cloudflare beacon must use the dashboard-provided module setup'
+        assert attrs.get('data-cf-beacon') == '{"token": "' + CLOUDFLARE_TOKEN + '"}', 'Unexpected Cloudflare Web Analytics token'
+        continue
     if tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
         target = attrs.get('src', attrs.get('href', ''))
         assert target.startswith('../assets/'), f'Unexpected EN asset path: {target}'
         assert (EN / target).resolve().is_file(), f'Missing EN asset: {target}'
 
 assert sha256((DOCS / 'licencja.html').read_bytes()).hexdigest() == 'd128e776246ae2d801c69c4ffeedd3b401c18cdb0011dbe0ae52f472703fb630', 'Terms PL baseline changed'
-assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == '927a1459e2e889b5f603aa4a1bc60d21b6cb9bd748d471592eac7723446d0ab9', 'Privacy PL baseline changed'
 
 for pl_name, en_name, authority_link, title in (
     ('licencja.html', 'terms.html', '../licencja.html', 'Terms of Use'),
@@ -117,8 +122,11 @@ assert 'https://www.zoho.com/privacy/privacy-faq.html' in privacy
 assert 'Cloudflare Web Analytics' in privacy
 assert 'Cloudflare Customer DPA' in privacy
 assert 'custom events, forms, remarketing, or user profiling' in privacy
-for page in DOCS.rglob('*.html'):
+for path, source in ((DOCS / 'index.html', pl_html), (EN / 'index.html', en_html)):
+    assert source.count(CLOUDFLARE_BEACON) == 1 and source.count('data-cf-beacon') == 1, f'Missing or duplicate Cloudflare beacon: {path.relative_to(ROOT)}'
+    assert source.index(CLOUDFLARE_BEACON) > source.index('</footer>') and source.index(CLOUDFLARE_BEACON) < source.index('</body>'), f'Cloudflare beacon must be placed after the page footer: {path.relative_to(ROOT)}'
+for page in (DOCS / 'licencja.html', DOCS / 'prywatnosc.html', EN / 'terms.html', EN / 'privacy.html'):
     source = page.read_text()
-    assert 'static.cloudflareinsights.com' not in source and 'data-cf-beacon' not in source, f'Manual Cloudflare beacon found in Pages source: {page.relative_to(DOCS)}'
+    assert CLOUDFLARE_BEACON not in source and 'data-cf-beacon' not in source, f'Analytics beacon must be limited to homepages: {page.relative_to(ROOT)}'
 assert not any(path.suffix.lower() in ('.zip', '.xlam', '.pdf', '.docx') for path in DOCS.rglob('*')), 'Release artifact found in website tree'
-print('PASS: EN/PL structure, current legal and Cloudflare-analytics baselines, language authority, intended Release URLs, and clean Pages boundary.')
+print('PASS: EN/PL structure, current legal and manual Cloudflare-analytics setup, language authority, intended Release URLs, and clean Pages boundary.')
