@@ -34,6 +34,7 @@ Plans, intentions, hypotheses and desired future abilities must not be presented
 - `docs/assets/` — website assets;
 - `public/pilot/` — public materials for pilot users/testers;
 - `public/media/` — reusable public media and communication assets.
+- `content/social-media/` — channel-specific social-media copy and publication records; this is a working archive, not a publishing source.
 
 ## Distribution
 
