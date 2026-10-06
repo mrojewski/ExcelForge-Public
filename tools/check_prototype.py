@@ -32,6 +32,8 @@ expected_external_links = {
     'https://github.com/mrojewski/ExcelForge-Public/releases/tag/guardian-g1-1-pilot',
     'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_Windows_Pilot.zip',
     'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1.1_macOS_Pilot.zip',
+    'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1_1_Windows_Instalacja_Pilot_PL_rev1_0_FINAL_v2.pdf',
+    'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1_1_macOS_Instalacja_Pilot_PL_rev1_0_FINAL_v2.pdf',
 }
 expected_local_links = {'licencja.html', 'prywatnosc.html', 'en/index.html'}
 for tag, attrs in page.elements:
