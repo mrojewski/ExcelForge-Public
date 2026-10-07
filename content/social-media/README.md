@@ -54,6 +54,26 @@ The body holds the publication copy, graphic/format notes, linked assets, and
 the short publication record. Keep private drafting comments out of copy that
 could be published by mistake.
 
+## Kierunek wizualny FB/IG
+
+Zatwierdzonym wzorcem dla grafik FB/IG jest post nr 1 i jego wspólny asset
+[`PUB-001_PUB-002_pl_czym-jest-excelforge.svg`](assets/PUB-001_PUB-002_pl_czym-jest-excelforge.svg).
+Kolejne grafiki należą do tej samej rodziny wizualnej, lecz nie kopiują
+kompozycji posta nr 1 w skali 1:1.
+
+- Przygotowuj format 1:1, mobile-first, na jasnym tle `#FFFFFF → #F4F8F4`.
+- Stosuj płaski, techniczno-edytorialny charakter: duży, prosty nagłówek,
+  cienkie linie, subtelną siatkę / guide lines oraz geometryczne markery.
+- Używaj canonical EF Block z brand baseline jako oszczędnej sygnatury marki;
+  outline EF Block może być motywem pomocniczym. Nie twórz fałszywych ani
+  generowanych wariantów logo.
+- Grafika jest branded openerem, a główna treść merytoryczna pozostaje w
+  caption.
+- Nie używaj stockowego ani lifestyle’owego looku: bez laptopów, biurek,
+  kubków, roślin, notebooków, zdjęć i fotorealistycznych scen.
+- Tam, gdzie pasuje do układu i przekazu, stosuj stopkę / ton:
+  `Praktycznie. Świadomie. Bez skrótów.`
+
 ## Lifecycle and history
 
 One channel-specific post has **one Markdown file**. Edit that file through
