@@ -100,6 +100,9 @@ Dla kolejnych postów stosuj stały, czteroetapowy workflow, aby ograniczyć pop
 3. **Branding dopiero po akceptacji układu** — po zatwierdzeniu kompozycji i mobile sanity check wstaw gotowy asset z `mrojewski/ExcelForge` / `main`: `brand/logo/ef-block-primary.svg` albo `brand/logo/ef-lockup-horizontal.svg`.
 4. **Finalny mobile sanity check** — po dodaniu kanonicznego logo wykonaj ponowną ocenę w feedzie mobilnym. Jeśli tekst lub ikony wymagają powiększania, grafika nie jest gotowa.
 
+
+- **Mockup mobilny jest wyłącznie warstwą prezentacyjną** — nie wolno mu modyfikować, przerysowywać ani reinterpretować gotowego assetu 1:1 ani zatwierdzonego copy. Mockup ma jedynie osadzić dokładnie ten sam asset i dokładnie ten sam tekst w symulowanym feedzie/telefonie. Nie dodawać własnych hashtagów, skrótów, zmienionych proporcji ani alternatywnych wersji treści.
+
 Ten workflow rozdziela kompozycję, czytelność mobilną i branding. Nie należy wracać do pełnej generacji całej planszy tylko dlatego, że korekty wymaga jeden z tych trzech obszarów.
 
 ## Lifecycle and history
