@@ -90,6 +90,18 @@ kompozycji posta nr 1 w skali 1:1.
 - Tam, gdzie pasuje do układu i przekazu, stosuj stopkę / ton:
   `Praktycznie. Świadomie. Bez skrótów.`
 
+
+### Workflow projektowania i akceptacji grafik FB/IG
+
+Dla kolejnych postów stosuj stały, czteroetapowy workflow, aby ograniczyć poprawki i utrzymać spójność serii:
+
+1. **Kompozycja bez brandingu** — generator przygotowuje wyłącznie układ 1:1, hierarchię, ikony, tło i motywy. Nie generuje logo, wordmarku ani napisu `ExcelForge`. W projekcie należy zostawić czystą, przewidzianą strefę na kanoniczny znak.
+2. **Podgląd mobilny jako obowiązkowy etap oceny** — każdą wersję oceniaj w mockupie telefonu / typowego feedu FB/IG. Sprawdź czy nagłówek, etapy procesu i ikony są czytelne bez zoomu oraz czy całość zachowuje właściwą hierarchię na małym ekranie.
+3. **Branding dopiero po akceptacji układu** — po zatwierdzeniu kompozycji i mobile sanity check wstaw gotowy asset z `mrojewski/ExcelForge` / `main`: `brand/logo/ef-block-primary.svg` albo `brand/logo/ef-lockup-horizontal.svg`.
+4. **Finalny mobile sanity check** — po dodaniu kanonicznego logo wykonaj ponowną ocenę w feedzie mobilnym. Jeśli tekst lub ikony wymagają powiększania, grafika nie jest gotowa.
+
+Ten workflow rozdziela kompozycję, czytelność mobilną i branding. Nie należy wracać do pełnej generacji całej planszy tylko dlatego, że korekty wymaga jeden z tych trzech obszarów.
+
 ## Lifecycle and history
 
 One channel-specific post has **one Markdown file**. Edit that file through
