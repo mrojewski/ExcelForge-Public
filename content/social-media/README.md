@@ -62,11 +62,27 @@ Kolejne grafiki należą do tej samej rodziny wizualnej, lecz nie kopiują
 kompozycji posta nr 1 w skali 1:1.
 
 - Przygotowuj format 1:1, mobile-first, na jasnym tle `#FFFFFF → #F4F8F4`.
+- Projektuj najpierw pod typowy ekran telefonu, nie pod desktop. Nagłówek,
+  główna oś przekazu, ikony i etapy procesu muszą być czytelne bez zoomu.
+- Ograniczaj liczbę elementów na planszy. Preferuj jeden główny komunikat i
+  najwyżej kilka dużych, prostych elementów wspierających. Drobne opisy i
+  rozwinięcia zostają w caption.
+- Nie używaj małych ikon, miniaturek, cienkich etykiet ani drobnego tekstu,
+  który jest czytelny dopiero po powiększeniu. Obowiązkowy jest sanity check
+  po zmniejszeniu grafiki do rozmiaru typowego feedu mobilnego.
 - Stosuj płaski, techniczno-edytorialny charakter: duży, prosty nagłówek,
   cienkie linie, subtelną siatkę / guide lines oraz geometryczne markery.
-- Używaj canonical EF Block z brand baseline jako oszczędnej sygnatury marki;
-  outline EF Block może być motywem pomocniczym. Nie twórz fałszywych ani
-  generowanych wariantów logo.
+- Kanonicznym źródłem logo jest `mrojewski/ExcelForge`, branch `main`.
+  Do finalnych grafik używaj gotowych assetów:
+  `brand/logo/ef-block-primary.svg` albo
+  `brand/logo/ef-lockup-horizontal.svg`.
+- Generator grafiki nie może tworzyć, przerysowywać ani interpretować logo
+  lub wordmarku. Nie wolno zmieniać układu 2×2, kolejności `E F / E F`,
+  kolorów, proporcji, liter ani dodawać ramek, cieni, gradientów czy własnych
+  wariantów znaku. Generator może tworzyć kompozycję i motywy, a canonical
+  logo jest dokładane jako gotowy asset na etapie składu.
+- Outline EF Block może być używany jako wtórny motyw dekoracyjny lub
+  procesowy, ale nie zastępuje kanonicznego logo.
 - Grafika jest branded openerem, a główna treść merytoryczna pozostaje w
   caption.
 - Nie używaj stockowego ani lifestyle’owego looku: bez laptopów, biurek,
