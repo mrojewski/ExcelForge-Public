@@ -115,4 +115,4 @@ assert 'Zoho Mail in a European data centre' in privacy
 assert 'Standard Contractual Clauses' in privacy
 assert 'https://www.zoho.com/privacy/privacy-faq.html' in privacy
 assert not any(path.suffix.lower() in ('.zip', '.xlam', '.pdf', '.docx') for path in DOCS.rglob('*')), 'Release artifact found in website tree'
-print('PASS: EN/PL structure, current legal baselines, language authority, intended Release URLs, and clean Pages boundary.')
+print('PASS: EN/PL structure, current legal and Cloudflare-analytics baselines, language authority, intended Release URLs, and clean Pages boundary.')
