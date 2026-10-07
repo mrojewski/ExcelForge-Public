@@ -12,6 +12,13 @@ RELEASE_TAG = f"{PUBLIC_RELEASE}/tag/guardian-g1-1-pilot"
 RELEASE_DOWNLOAD = f"{PUBLIC_RELEASE}/download/guardian-g1-1-pilot"
 WINDOWS_GUIDE = f"{RELEASE_DOWNLOAD}/ExcelForge_Guardian_G1_1_Windows_Installation_Pilot_EN_rev1_0_FINAL.pdf"
 MACOS_GUIDE = f"{RELEASE_DOWNLOAD}/ExcelForge_Guardian_G1_1_macOS_Installation_Pilot_EN_rev1_0_FINAL.pdf"
+CLOUDFLARE_BEACON_URL = 'https://static.cloudflareinsights.com/beacon.min.js'
+CLOUDFLARE_BEACON_TOKEN = '{"token": "9d6a7c7414d14004b4507595e54a5091"}'
+CLOUDFLARE_BEACON = (
+    "<!-- Cloudflare Web Analytics --><script type='module' "
+    f"src='{CLOUDFLARE_BEACON_URL}' data-cf-beacon='{CLOUDFLARE_BEACON_TOKEN}'"
+    "></script><!-- End Cloudflare Web Analytics -->"
+)
 
 
 class Page(HTMLParser):
@@ -32,6 +39,10 @@ def parse(path):
 
 pl_html, pl_page = parse(DOCS / "index.html")
 en_html, en_page = parse(EN / "index.html")
+for language, homepage in (('PL', pl_html), ('EN', en_html)):
+    assert homepage.count(CLOUDFLARE_BEACON) == 1, f'{language} homepage must contain exactly one approved Cloudflare Web Analytics beacon'
+    assert homepage.count(CLOUDFLARE_BEACON_URL) == 1 and homepage.count('data-cf-beacon') == 1, f'{language} homepage must not contain duplicate Cloudflare Web Analytics beacons'
+    assert homepage.rstrip().endswith(f'{CLOUDFLARE_BEACON}\n</body>\n</html>'), f'{language} Cloudflare Web Analytics beacon must be directly before </body>'
 ids = [attrs["id"] for _, attrs in en_page.elements if "id" in attrs]
 assert len(ids) == len(set(ids)), "Duplicate EN IDs"
 assert ("html", {"lang": "en"}) in en_page.elements
@@ -76,13 +87,19 @@ for tag, attrs in en_page.elements:
             assert (EN / target).resolve().is_file(), f'Missing EN local link: {target}'
         else:
             assert target in allowed_external, f'Unexpected EN link: {target}'
-    if tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
+    if tag == 'script' and attrs.get('src') == CLOUDFLARE_BEACON_URL:
+        assert attrs == {
+            'type': 'module',
+            'src': CLOUDFLARE_BEACON_URL,
+            'data-cf-beacon': CLOUDFLARE_BEACON_TOKEN,
+        }, 'Unexpected Cloudflare Web Analytics beacon attributes'
+    elif tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
         target = attrs.get('src', attrs.get('href', ''))
         assert target.startswith('../assets/'), f'Unexpected EN asset path: {target}'
         assert (EN / target).resolve().is_file(), f'Missing EN asset: {target}'
 
 assert sha256((DOCS / 'licencja.html').read_bytes()).hexdigest() == 'd128e776246ae2d801c69c4ffeedd3b401c18cdb0011dbe0ae52f472703fb630', 'Terms PL baseline changed'
-assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == '15a4fff8911b413aa62795db42cbb445f59e47417ab284292b405e7569dcca8a', 'Privacy PL baseline changed'
+assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == '927a1459e2e889b5f603aa4a1bc60d21b6cb9bd748d471592eac7723446d0ab9', 'Privacy PL baseline changed'
 
 for pl_name, en_name, authority_link, title in (
     ('licencja.html', 'terms.html', '../licencja.html', 'Terms of Use'),
@@ -119,6 +136,7 @@ assert 'Cloudflare Customer DPA' in privacy
 assert 'custom events, forms, remarketing, or user profiling' in privacy
 for page in DOCS.rglob('*.html'):
     source = page.read_text()
-    assert 'static.cloudflareinsights.com' not in source and 'data-cf-beacon' not in source, f'Manual Cloudflare beacon found in Pages source: {page.relative_to(DOCS)}'
+    if page not in (DOCS / 'index.html', EN / 'index.html'):
+        assert 'static.cloudflareinsights.com' not in source and 'data-cf-beacon' not in source, f'Manual Cloudflare beacon found outside a homepage: {page.relative_to(DOCS)}'
 assert not any(path.suffix.lower() in ('.zip', '.xlam', '.pdf', '.docx') for path in DOCS.rglob('*')), 'Release artifact found in website tree'
-print('PASS: EN/PL structure, current legal and Cloudflare-analytics baselines, language authority, intended Release URLs, and clean Pages boundary.')
+print('PASS: EN/PL structure, current legal and Cloudflare-analytics baselines, exactly one approved beacon per homepage, language authority, intended Release URLs, and clean Pages boundary.')
