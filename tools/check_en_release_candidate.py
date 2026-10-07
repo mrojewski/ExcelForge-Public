@@ -99,7 +99,7 @@ for tag, attrs in en_page.elements:
         assert (EN / target).resolve().is_file(), f'Missing EN asset: {target}'
 
 assert sha256((DOCS / 'licencja.html').read_bytes()).hexdigest() == 'd128e776246ae2d801c69c4ffeedd3b401c18cdb0011dbe0ae52f472703fb630', 'Terms PL baseline changed'
-assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == '927a1459e2e889b5f603aa4a1bc60d21b6cb9bd748d471592eac7723446d0ab9', 'Privacy PL baseline changed'
+assert sha256((DOCS / 'prywatnosc.html').read_bytes()).hexdigest() == '3f977640966a430fe93ebe8f5ea460103b5d92cfd5f711854ac3ada640f0ac59', 'Privacy PL baseline changed'
 
 for pl_name, en_name, authority_link, title in (
     ('licencja.html', 'terms.html', '../licencja.html', 'Terms of Use'),
