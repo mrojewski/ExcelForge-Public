@@ -6,6 +6,13 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
+CLOUDFLARE_BEACON_URL = 'https://static.cloudflareinsights.com/beacon.min.js'
+CLOUDFLARE_BEACON_TOKEN = '{"token": "9d6a7c7414d14004b4507595e54a5091"}'
+CLOUDFLARE_BEACON = (
+    "<!-- Cloudflare Web Analytics --><script type='module' "
+    f"src='{CLOUDFLARE_BEACON_URL}' data-cf-beacon='{CLOUDFLARE_BEACON_TOKEN}'"
+    "></script><!-- End Cloudflare Web Analytics -->"
+)
 
 
 class Page(HTMLParser):
@@ -20,6 +27,9 @@ class Page(HTMLParser):
 html = (DOCS / "index.html").read_text()
 css = (DOCS / "assets/site.css").read_text()
 js = (DOCS / "assets/site.js").read_text()
+assert html.count(CLOUDFLARE_BEACON) == 1, 'PL homepage must contain exactly one approved Cloudflare Web Analytics beacon'
+assert html.count(CLOUDFLARE_BEACON_URL) == 1 and html.count('data-cf-beacon') == 1, 'PL homepage must not contain duplicate Cloudflare Web Analytics beacons'
+assert html.rstrip().endswith(f'{CLOUDFLARE_BEACON}\n</body>\n</html>'), 'Cloudflare Web Analytics beacon must be directly before </body>'
 page = Page()
 page.feed(html)
 ids = [a['id'] for _, a in page.elements if 'id' in a]
@@ -49,7 +59,13 @@ for tag, attrs in page.elements:
         else:
             assert target in expected_external_links, f'Unexpected active link: {target}'
         assert 'download' not in attrs
-    if tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
+    if tag == 'script' and attrs.get('src') == CLOUDFLARE_BEACON_URL:
+        assert attrs == {
+            'type': 'module',
+            'src': CLOUDFLARE_BEACON_URL,
+            'data-cf-beacon': CLOUDFLARE_BEACON_TOKEN,
+        }, 'Unexpected Cloudflare Web Analytics beacon attributes'
+    elif tag in ('script', 'img') or (tag == 'link' and attrs.get('rel') in ('stylesheet', 'icon')):
         target = attrs.get('src', attrs.get('href', ''))
         assert target.startswith('assets/'), f'External/unexpected asset: {target}'
         assert (DOCS / target).is_file(), f'Missing asset: {target}'
