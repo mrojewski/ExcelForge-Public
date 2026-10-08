@@ -105,6 +105,51 @@ Dla kolejnych postów stosuj stały, czteroetapowy workflow, aby ograniczyć pop
 
 Ten workflow rozdziela kompozycję, czytelność mobilną i branding. Nie należy wracać do pełnej generacji całej planszy tylko dlatego, że korekty wymaga jeden z tych trzech obszarów.
 
+
+### Twardy baseline formatu i spójności serii FB/IG
+
+Poniższe parametry są obowiązkowym punktem odniesienia dla każdej kolejnej
+grafiki FB/IG. Nie należy rozpoczynać nowej iteracji bez sprawdzenia ich wobec
+zatwierdzonego posta nr 1.
+
+- **Format finalny:** zawsze kwadrat `1:1`, docelowo `1080 × 1080 px`.
+  Wariant panoramiczny może służyć wyłącznie jako szkic roboczy, nigdy jako
+  finalny asset do publikacji.
+- **Wzorzec referencyjny:** post nr 1,
+  `assets/PUB-001_PUB-002_pl_czym-jest-excelforge.svg`, jest visual baseline
+  dla skali nagłówków, marginesów, brandingu, gęstości informacji i
+  czytelności mobilnej.
+- **Mobile-first:** projekt musi być czytelny po zmniejszeniu do typowego
+  rozmiaru feedu telefonu bez zoomu. Jeśli którykolwiek kluczowy element
+  wymaga powiększenia, projekt nie przechodzi.
+- **Branding:** używać wyłącznie kanonicznych assetów z
+  `mrojewski/ExcelForge` / `main`:
+  `brand/logo/ef-block-primary.svg` albo
+  `brand/logo/ef-lockup-horizontal.svg`. Generator nie tworzy, nie
+  interpretuje i nie przerysowuje logo.
+- **Skala logo:** znak ma być realnie czytelny na telefonie i wizualnie
+  zbalansowany względem głównego nagłówka. Nie traktować go jako drobnej
+  sygnatury. Finalną skalę oceniać zawsze w porównaniu z postem nr 1 i w
+  podglądzie mobilnym.
+- **Hierarchia:** jeden dominujący nagłówek + maksymalnie kilka dużych,
+  prostych elementów wspierających. Szczegóły pozostają w caption.
+- **Styl:** jasne tło `#FFFFFF → #F4F8F4`, płaski
+  techniczno-edytorialny charakter, cienkie linie, subtelna siatka / guide
+  lines i geometryczne markery. Miękkie fale lub inne tło dekoracyjne są
+  dopuszczalne tylko wtedy, gdy nie rozbijają technicznego charakteru serii.
+- **Kolory:** trzymać się Brand Baseline v1 i zieleni ExcelForge; bez
+  przypadkowych nowych kolorów kampanijnych.
+- **Stopka / rytm słowny:** `Praktycznie. Świadomie. Bez skrótów.` może być
+  rozłożone po szerokości. Pozycja może się zmieniać między planszami, ale
+  typograficznie i tonalnie musi pozostać spójna z serią.
+- **Procesy / ikony:** duże, proste i kontrastowe. Nie używać drobnych
+  podpisów pod każdym etapem, jeśli nie są czytelne na telefonie.
+- **Zakaz stock/lifestyle:** bez zdjęć, laptopów, biurek, kubków, roślin,
+  notebooków i fotorealistycznych scen.
+- **Obowiązkowy preflight przed akceptacją:** porównaj obok siebie z postem
+  nr 1, sprawdź `1:1`, logo, marginesy, skalę nagłówka, gęstość elementów i
+  podgląd mobilny. Dopiero potem uznaj grafikę za gotową.
+
 ## Lifecycle and history
 
 One channel-specific post has **one Markdown file**. Edit that file through
