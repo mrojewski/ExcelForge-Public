@@ -149,6 +149,9 @@ zatwierdzonego posta nr 1.
 - **Obowiązkowy preflight przed akceptacją:** porównaj obok siebie z postem
   nr 1, sprawdź `1:1`, logo, marginesy, skalę nagłówka, gęstość elementów i
   podgląd mobilny. Dopiero potem uznaj grafikę za gotową.
+- **Visual Reference Board:** przy pracy nad każdym kolejnym postem trzymaj obok siebie miniatury dotychczas zaakceptowanych grafik serii oraz aktualny projekt. Porównuj świadomie tło, typografię, logo, rytm, marginesy, ikonografię, gęstość informacji i zachowanie w mobile feedzie.
+- **Baseline jest punktem odniesienia, nie gorsetem:** świadome odejście od wcześniejszego wzorca jest dopuszczalne, jeśli ma jasne uzasadnienie komunikacyjne lub funkcjonalne. Należy odróżniać zamierzoną ewolucję stylu od przypadkowego driftu. Każde istotne odejście powinno być nazwane i ocenione w preflight.
+- **Porównanie rośnie wraz z serią:** po zatwierdzeniu kolejnej publikacji staje się ona częścią reference board. Dla posta #4 punktem odniesienia są więc #1–#3, a nie wyłącznie pierwszy post.
 
 ## Lifecycle and history
 
