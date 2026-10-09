@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/>
+    <stop offset="1" stop-color="#F4F8F4"/>
+  </linearGradient>
+  <clipPath id="screen"><rect x="90" y="360" width="900" height="390" rx="16"/></clipPath>
+  <clipPath id="leftHalf"><polygon points="90,360 650,360 430,750 90,750"/></clipPath>
+  <clipPath id="rightHalf"><polygon points="650,360 990,360 990,750 430,750"/></clipPath>
+  <style>
+    .ui{font-family:Arial,Helvetica,sans-serif}
+    .ink{fill:#0D2B1F}.green{fill:#0E6B3A}.green2{fill:#26913F}.muted{fill:#6E7B75}
+    .grid{stroke:#0E6B3A;stroke-width:1.2;opacity:.10}
+  </style>
+</defs>
+<rect width="1080" height="1080" fill="url(#bg)"/>
+<g class="grid"><path d="M760 0v1080M910 0v1080M0 620h1080M0 800h1080"/><path d="M760 80h300M760 220h300M760 360h300M760 500h300"/></g>
+<g fill="#4CBE5B" opacity=".32"><rect x="755" y="75" width="10" height="10"/><rect x="905" y="215" width="10" height="10"/><rect x="905" y="495" width="10" height="10"/><rect x="755" y="795" width="10" height="10"/></g>
+<g transform="translate(62 42) scale(.72)">
+  <g transform="translate(16 16) scale(.5)">
+    <rect x="12" y="12" width="112" height="112" rx="18" fill="#7DCB65"/><rect x="132" y="12" width="112" height="112" rx="18" fill="#4CBE5B"/><rect x="12" y="132" width="112" height="112" rx="18" fill="#26913F"/><rect x="132" y="132" width="112" height="112" rx="18" fill="#0E6B3A"/>
+    <g fill="#0D2B1F"><rect x="43" y="34" width="14" height="68"/><rect x="43" y="34" width="50" height="14"/><rect x="43" y="61" width="42" height="13"/><rect x="43" y="88" width="50" height="14"/><rect x="163" y="34" width="14" height="68"/><rect x="163" y="34" width="50" height="14"/><rect x="163" y="61" width="42" height="13"/></g>
+    <g fill="#FFFFFF"><rect x="43" y="154" width="14" height="68"/><rect x="43" y="154" width="50" height="14"/><rect x="43" y="181" width="42" height="13"/><rect x="43" y="208" width="50" height="14"/><rect x="163" y="154" width="14" height="68"/><rect x="163" y="154" width="50" height="14"/><rect x="163" y="181" width="42" height="13"/></g>
+  </g>
+  <text x="170" y="102" fill="#0D2B1F" font-family="Arial,Helvetica,sans-serif" font-size="64" font-weight="700" letter-spacing="-2">ExcelForge</text>
+</g>
+<text x="72" y="200" class="ui muted" font-size="43" font-weight="700">Mimo upływu ponad 40 lat…</text>
+<text x="72" y="274" class="ui green" font-size="56" font-weight="900">Excel nadal ma ogromny potencjał.</text>
+<rect x="68" y="338" width="944" height="436" rx="28" fill="#FFFFFF" stroke="#D6E2DA" stroke-width="4"/>
+<rect x="90" y="360" width="900" height="390" rx="16" fill="#FBFDFC"/>
+<g clip-path="url(#leftHalf)">
+  <rect x="90" y="360" width="620" height="390" fill="#F2F2EE"/><rect x="90" y="360" width="620" height="34" fill="#D1D1CC"/><text x="106" y="383" class="ui ink" font-size="15" font-weight="700">File  Edit  Formula  Format  Data  Options  Macro  Window  Help</text><rect x="90" y="394" width="620" height="30" fill="#E6E6E1"/>
+  <g stroke="#A5ACA7" stroke-width="1"><path d="M130 424v326M220 424v326M310 424v326M400 424v326M490 424v326M580 424v326M670 424v326"/><path d="M90 454h620M90 484h620M90 514h620M90 544h620M90 574h620M90 604h620M90 634h620M90 664h620M90 694h620M90 724h620"/></g>
+  <g class="ui ink" font-size="14">
+    <text x="145" y="445">Produkt</text><text x="235" y="445">Region</text><text x="325" y="445">Sprzedaż</text><text x="415" y="445">Koszt</text><text x="505" y="445">Marża</text><text x="595" y="445">Kwartał</text>
+    <text x="145" y="475">A</text><text x="235" y="475">Północ</text><text x="325" y="475">12 450</text><text x="415" y="475">8 230</text><text x="505" y="475">34%</text><text x="595" y="475">Q1</text>
+    <text x="145" y="505">B</text><text x="235" y="505">Południe</text><text x="325" y="505">8 760</text><text x="415" y="505">6 120</text><text x="505" y="505">30%</text><text x="595" y="505">Q1</text>
+    <text x="145" y="535">C</text><text x="235" y="535">Zachód</text><text x="325" y="535">15 320</text><text x="415" y="535">10 960</text><text x="505" y="535">28%</text><text x="595" y="535">Q1</text>
+    <text x="145" y="565">D</text><text x="235" y="565">Wschód</text><text x="325" y="565">9 870</text><text x="415" y="565">7 330</text><text x="505" y="565">26%</text><text x="595" y="565">Q2</text>
+    <text x="145" y="595">E</text><text x="235" y="595">Central</text><text x="325" y="595">11 540</text><text x="415" y="595">8 910</text><text x="505" y="595">23%</text><text x="595" y="595">Q2</text>
+    <text x="145" y="625">F</text><text x="235" y="625">Północ</text><text x="325" y="625">10 210</text><text x="415" y="625">7 280</text><text x="505" y="625">29%</text><text x="595" y="625">Q2</text>
+    <text x="145" y="655">G</text><text x="235" y="655">Zachód</text><text x="325" y="655">14 880</text><text x="415" y="655">10 110</text><text x="505" y="655">32%</text><text x="595" y="655">Q3</text>
+    <text x="145" y="685">H</text><text x="235" y="685">Południe</text><text x="325" y="685">7 960</text><text x="415" y="685">5 820</text><text x="505" y="685">27%</text><text x="595" y="685">Q3</text>
+    <text x="145" y="715">I</text><text x="235" y="715">Central</text><text x="325" y="715">13 040</text><text x="415" y="715">9 240</text><text x="505" y="715">29%</text><text x="595" y="715">Q4</text>
+  </g>
+</g>
+<g clip-path="url(#rightHalf)">
+  <rect x="430" y="360" width="560" height="390" fill="#FFFFFF"/><rect x="430" y="360" width="560" height="38" fill="#EAF6ED"/><text x="545" y="385" class="ui green" font-size="16" font-weight="800">Dane   Formuły   Analiza   Automatyzacja   AI</text>
+  <g stroke="#D5E1D9" stroke-width="1"><path d="M520 418v314M585 418v314M650 418v314M715 418v314M780 418v314M845 418v314M910 418v314M975 418v314"/><path d="M495 448h495M495 478h495M495 508h495M495 538h495M495 568h495M495 598h495M495 628h495M495 658h495M495 688h495M495 718h495"/></g>
+  <rect x="605" y="422" width="330" height="138" rx="12" fill="#FFFFFF" stroke="#BCD7C5" stroke-width="2"/><text x="625" y="448" class="ui ink" font-size="15" font-weight="800">Analiza sprzedaży</text><text x="625" y="471" class="ui muted" font-size="12">Dane po odświeżeniu • 8 regionów</text>
+  <path d="M630 535 L670 520 L710 526 L750 497 L790 507 L830 478 L880 490 L915 462" fill="none" stroke="#0E6B3A" stroke-width="3.5"/>
+  <g fill="#0E6B3A"><circle cx="630" cy="535" r="3.5"/><circle cx="670" cy="520" r="3.5"/><circle cx="710" cy="526" r="3.5"/><circle cx="750" cy="497" r="3.5"/><circle cx="790" cy="507" r="3.5"/><circle cx="830" cy="478" r="3.5"/><circle cx="880" cy="490" r="3.5"/><circle cx="915" cy="462" r="3.5"/></g>
+  <g class="ui ink" font-size="13"><text x="535" y="590" font-weight="800">Produkt</text><text x="610" y="590" font-weight="800">Sprzedaż</text><text x="690" y="590" font-weight="800">Trend</text><text x="760" y="590" font-weight="800">Status</text><text x="535" y="620">A</text><text x="610" y="620">125 430</text><text x="690" y="620" fill="#0E6B3A">↗</text><text x="760" y="620">OK</text><text x="535" y="650">B</text><text x="610" y="650">98 210</text><text x="690" y="650" fill="#0E6B3A">↗</text><text x="760" y="650">OK</text><text x="535" y="680">C</text><text x="610" y="680">76 845</text><text x="690" y="680">→</text><text x="760" y="680">Review</text></g>
+  <g><rect x="815" y="592" width="112" height="30" rx="8" fill="#EAF6ED"/><text x="871" y="612" text-anchor="middle" class="ui green" font-size="12" font-weight="800">Power Query</text><rect x="815" y="630" width="112" height="30" rx="8" fill="#EAF6ED"/><text x="871" y="650" text-anchor="middle" class="ui green" font-size="12" font-weight="800">Automatyzacja</text><rect x="815" y="668" width="112" height="30" rx="8" fill="#EAF6ED"/><text x="871" y="688" text-anchor="middle" class="ui green" font-size="12" font-weight="800">AI</text></g>
+  <rect x="535" y="698" width="168" height="34" rx="8" fill="#F7FBF8" stroke="#DCE8E0"/><text x="548" y="719" class="ui ink" font-size="12" font-weight="700">Dane zewnętrzne</text><rect x="712" y="698" width="118" height="34" rx="8" fill="#F7FBF8" stroke="#DCE8E0"/><text x="771" y="719" text-anchor="middle" class="ui ink" font-size="12" font-weight="700">Model danych</text><rect x="840" y="698" width="88" height="34" rx="8" fill="#F7FBF8" stroke="#DCE8E0"/><text x="884" y="719" text-anchor="middle" class="ui ink" font-size="12" font-weight="700">Formuły</text>
+</g>
+<path d="M650 360 L430 750" stroke="#0E6B3A" stroke-width="4"/>
+<rect x="452" y="774" width="176" height="22" rx="10" fill="#DCE6E0"/><path d="M510 796h60l18 36H492z" fill="#E9EFEB"/>
+<g class="ui" transform="translate(95 855)">
+  <g transform="translate(0 0)"><circle cx="80" cy="44" r="38" fill="#7DCB65" stroke="#7DCB65" stroke-width="2"/><path d="M58 31h44M58 43h44M58 55h44" stroke="#0D2B1F" stroke-width="4" stroke-linecap="round"/><text x="80" y="108" text-anchor="middle" class="ink" font-size="20" font-weight="800">DANE</text></g>
+  <g transform="translate(250 0)"><circle cx="80" cy="44" r="38" fill="#4CBE5B" stroke="#4CBE5B" stroke-width="2"/><rect x="58" y="48" width="10" height="18" fill="#0D2B1F"/><rect x="75" y="38" width="10" height="28" fill="#0D2B1F"/><rect x="92" y="26" width="10" height="40" fill="#0D2B1F"/><text x="80" y="108" text-anchor="middle" class="ink" font-size="20" font-weight="800">ANALIZA</text></g>
+  <g transform="translate(500 0)"><circle cx="80" cy="44" r="38" fill="#26913F" stroke="#26913F" stroke-width="2"/><path d="M56 45h18l8-14 9 27 8-13h8" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="80" y="108" text-anchor="middle" class="ink" font-size="18" font-weight="800">AUTOMATYZACJA</text></g>
+  <g transform="translate(750 0)"><circle cx="80" cy="44" r="38" fill="#0E6B3A" stroke="#0E6B3A" stroke-width="2"/><circle cx="66" cy="38" r="6" fill="#FFFFFF"/><circle cx="94" cy="28" r="6" fill="#FFFFFF"/><circle cx="96" cy="57" r="6" fill="#FFFFFF"/><path d="M71 36l17-6M72 42l18 12M94 34l1 17" stroke="#FFFFFF" stroke-width="3"/><text x="80" y="102" text-anchor="middle" class="ink" font-size="17" font-weight="800">WIĘKSZE</text><text x="80" y="124" text-anchor="middle" class="ink" font-size="17" font-weight="800">MOŻLIWOŚCI</text></g>
+</g>
+<g class="ui" font-size="24" font-weight="800"><text x="150" y="1030" text-anchor="middle" class="ink">Praktycznie.</text><text x="540" y="1030" text-anchor="middle" class="green">Świadomie.</text><text x="930" y="1030" text-anchor="middle" class="ink">Bez skrótów.</text></g>
+</svg>
