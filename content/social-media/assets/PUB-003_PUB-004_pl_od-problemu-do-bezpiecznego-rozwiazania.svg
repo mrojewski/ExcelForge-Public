@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">ExcelForge — Od problemu do bezpiecznego rozwiązania</title>
+  <desc id="desc">Kwadratowa grafika społecznościowa ExcelForge przedstawiająca drogę od problemu przez zrozumienie i decyzję do bezpiecznego rozwiązania.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FCFDFB"/><stop offset="1" stop-color="#F0F9F3"/></linearGradient>
+    <linearGradient id="safe" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E9F9EE"/><stop offset="1" stop-color="#CBEFD6"/></linearGradient>
+    <linearGradient id="darkGreen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07813C"/><stop offset="1" stop-color="#005B2D"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0A3420" flood-opacity=".10"/></filter>
+    <style>
+      .sans{font-family:Arial,Helvetica,sans-serif}.ink{fill:#071A12}.green{fill:#087C3A}.muted{fill:#597166}.micro{font-size:12px;font-weight:700;letter-spacing:1.8px}.label{font-size:18px;font-weight:700;letter-spacing:.1px}.cardCopy{font-size:14px;font-weight:400;fill:#5B7468}.icon{fill:none;stroke:#0A2B1C;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.iconGreen{fill:none;stroke:#05813B;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#paper)"/>
+  <path d="M-52 932C135 786 307 905 462 818c157-88 349-7 670-128V1080H-52Z" fill="#E4F8EA" opacity=".82"/>
+  <path d="M687 0C824 83 896 154 1080 175V0Z" fill="#D7F4DF" opacity=".72"/>
+  <path d="M-35 872C137 736 294 859 445 777" fill="none" stroke="#C9ECD5" stroke-width="2"/>
+
+  <!-- Canonical ExcelForge lockup -->
+  <g class="sans" transform="translate(66 54)">
+    <g font-size="27" font-weight="800" text-anchor="middle">
+      <rect width="42" height="42" rx="7" fill="#61C65B"/><text x="21" y="31" fill="#082618">E</text>
+      <rect x="47" width="42" height="42" rx="7" fill="#4EBA5A"/><text x="68" y="31" fill="#082618">F</text>
+      <rect y="47" width="42" height="42" rx="7" fill="#269748"/><text x="21" y="78" fill="#FFF">E</text>
+      <rect x="47" y="47" width="42" height="42" rx="7" fill="#087B39"/><text x="68" y="78" fill="#FFF">F</text>
+    </g>
+    <text x="108" y="59" class="ink" font-size="42" font-weight="700" letter-spacing="-1.6">ExcelForge</text>
+  </g>
+  <g class="sans ink">
+    <text x="66" y="212" font-size="72" font-weight="700" letter-spacing="-3.2">Od problemu…</text>
+    <text x="66" y="294" font-size="67" font-weight="700" letter-spacing="-3.5">…do <tspan class="green">bezpiecznego</tspan></text>
+    <text x="66" y="371" font-size="67" font-weight="700" letter-spacing="-3.5"><tspan class="green">rozwiązania.</tspan></text>
+    <text x="69" y="409" class="micro muted">DOBRE ROZWIĄZANIA ZACZYNAJĄ SIĘ OD DOBREGO ROZPOZNANIA</text>
+  </g>
+  <line x1="66" y1="446" x2="1014" y2="446" stroke="#B9DDC5" stroke-width="2"/>
+
+  <!-- four-stage path -->
+  <g class="sans" filter="url(#shadow)">
+    <!-- card 1 -->
+    <g transform="translate(66 501)">
+      <rect width="216" height="362" rx="20" fill="#FFF" stroke="#C8DED0" stroke-width="2"/>
+      <circle cx="108" cy="0" r="33" fill="#FFF" stroke="#D3E0D8" stroke-width="3"/>
+      <text x="108" y="12" text-anchor="middle" font-size="34" font-weight="800" class="ink">1</text>
+      <rect x="18" y="32" width="180" height="180" rx="16" fill="#F1F7F3"/>
+      <path d="M72 75h51l25 25v62a9 9 0 0 1-9 9H72a9 9 0 0 1-9-9V84a9 9 0 0 1 9-9Z" class="icon"/>
+      <path d="M123 75v26h25M82 112h43M82 133h43M82 154h28" class="icon"/>
+      <path d="M108 123l38 67H70l38-67Z" fill="#FFF" stroke="#07813C" stroke-width="7" stroke-linejoin="round"/>
+      <path d="M108 147v20M108 178v1" class="iconGreen"/>
+      <rect x="18" y="242" width="180" height="56" rx="14" fill="#EFF3F0"/>
+      <text x="108" y="278" text-anchor="middle" class="label ink">PROBLEM</text>
+      <text x="108" y="329" text-anchor="middle" class="cardCopy">zatrzymaj się</text>
+    </g>
+    <!-- arrow 1 -->
+    <path d="M290 680h14m-8-9 9 9-9 9" class="iconGreen"/>
+    <!-- card 2 -->
+    <g transform="translate(312 501)">
+      <rect width="216" height="362" rx="20" fill="#FFF" stroke="#C8DED0" stroke-width="2"/>
+      <circle cx="108" cy="0" r="33" fill="#FFF" stroke="#D3E0D8" stroke-width="3"/>
+      <text x="108" y="12" text-anchor="middle" font-size="34" font-weight="800" class="ink">2</text>
+      <rect x="18" y="32" width="180" height="180" rx="16" fill="#F1F7F3"/>
+      <circle cx="98" cy="118" r="45" class="icon"/>
+      <path d="M130 151l31 31" class="icon"/><path d="M157 169l16 16" class="icon"/>
+      <rect x="77" y="118" width="13" height="24" rx="3" fill="#079042"/><rect x="97" y="101" width="13" height="41" rx="3" fill="#079042"/><rect x="117" y="84" width="13" height="58" rx="3" fill="#079042"/>
+      <rect x="18" y="242" width="180" height="56" rx="14" fill="#EFF3F0"/>
+      <text x="108" y="278" text-anchor="middle" class="label ink">ZROZUMIENIE</text>
+      <text x="108" y="329" text-anchor="middle" class="cardCopy">poznaj przyczynę</text>
+    </g>
+    <!-- arrow 2 -->
+    <path d="M536 680h14m-8-9 9 9-9 9" class="iconGreen"/>
+    <!-- card 3 -->
+    <g transform="translate(558 501)">
+      <rect width="216" height="362" rx="20" fill="#FFF" stroke="#C8DED0" stroke-width="2"/>
+      <circle cx="108" cy="0" r="33" fill="#FFF" stroke="#D3E0D8" stroke-width="3"/>
+      <text x="108" y="12" text-anchor="middle" font-size="34" font-weight="800" class="ink">3</text>
+      <rect x="18" y="32" width="180" height="180" rx="16" fill="#F1F7F3"/>
+      <rect x="57" y="70" width="102" height="105" rx="10" class="icon"/>
+      <path d="M78 103l8 8 15-18M78 133l8 8 15-18M112 103h25M112 133h25" class="icon"/>
+      <circle cx="140" cy="153" r="29" fill="#07813C"/>
+      <path d="m125 153 10 10 20-23" fill="none" stroke="#FFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="18" y="242" width="180" height="56" rx="14" fill="#EFF3F0"/>
+      <text x="108" y="278" text-anchor="middle" class="label ink">DECYZJA</text>
+      <text x="108" y="329" text-anchor="middle" class="cardCopy">wybierz świadomie</text>
+    </g>
+    <!-- arrow 3 -->
+    <path d="M782 680h14m-8-9 9 9-9 9" class="iconGreen"/>
+    <!-- card 4 -->
+    <g transform="translate(804 501)">
+      <rect width="210" height="362" rx="20" fill="url(#safe)" stroke="#98D8AC" stroke-width="2"/>
+      <circle cx="105" cy="0" r="33" fill="#FFF" stroke="#07813C" stroke-width="3"/>
+      <text x="105" y="12" text-anchor="middle" font-size="34" font-weight="800" class="green">4</text>
+      <rect x="18" y="32" width="174" height="180" rx="16" fill="#E6F7EB"/>
+      <path d="M49 173v-43h24v43m15 0v-67h24v67m15 0V78h24v95" fill="#087C3A"/>
+      <path d="M43 119c39-2 72-27 99-69M128 52h20v20" class="iconGreen"/>
+      <rect x="18" y="242" width="174" height="70" rx="14" fill="url(#darkGreen)"/>
+      <text x="105" y="270" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF">BEZPIECZNE</text>
+      <text x="105" y="294" text-anchor="middle" font-size="18" font-weight="700" fill="#FFF">ROZWIĄZANIE</text>
+      <text x="105" y="341" text-anchor="middle" class="cardCopy" fill="#326D49">wdroż z pewnością</text>
+    </g>
+  </g>
+
+  <!-- Bottom statement -->
+  <g class="sans">
+    <line x1="66" y1="935" x2="1014" y2="935" stroke="#AFDCC0" stroke-width="2"/>
+    <text x="540" y="985" text-anchor="middle" font-size="24" font-weight="700" letter-spacing=".2" class="ink">Praktycznie. <tspan class="green">Świadomie.</tspan> Bez skrótów.</text>
+    <text x="540" y="1024" text-anchor="middle" class="micro muted">EXCELFORGE  •  AUTOMATYZACJA, KTÓRA WSPERA DECYZJE</text>
+  </g>
+</svg>
