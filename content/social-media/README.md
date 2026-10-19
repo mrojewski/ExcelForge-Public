@@ -153,6 +153,37 @@ zatwierdzonego posta nr 1.
 - **Baseline jest punktem odniesienia, nie gorsetem:** świadome odejście od wcześniejszego wzorca jest dopuszczalne, jeśli ma jasne uzasadnienie komunikacyjne lub funkcjonalne. Należy odróżniać zamierzoną ewolucję stylu od przypadkowego driftu. Każde istotne odejście powinno być nazwane i ocenione w preflight.
 - **Porównanie rośnie wraz z serią:** po zatwierdzeniu kolejnej publikacji staje się ona częścią reference board. Dla posta #4 punktem odniesienia są więc #1–#3, a nie wyłącznie pierwszy post.
 
+## Kierunek redakcyjny: okresowe posty „sprawdźmy granicę”
+
+W serii social-media można okresowo stosować treści oparte na kontrintuicyjnym, ale zweryfikowanym punkcie wyjścia: popularnym przekonaniu, które jest prawdziwe tylko w części przypadków albo ma istotne warunki brzegowe.
+
+Celem nie jest clickbait ani stały ton „wszyscy się mylą”. Takie publikacje mają być przeplatane z pozostałymi tematami i pełnić rolę ciekawostki / hooka, który zatrzymuje uwagę i prowadzi do pełniejszego wyjaśnienia.
+
+Zasady:
+- hook może być przewrotny, ale treść musi być zgodna z dostępnym evidence;
+- nie formułować uniwersalnej obietnicy na podstawie wąskiego testu;
+- jasno pokazywać zakres, ograniczenia i warunki brzegowe;
+- odróżniać „na tym etapie nie mamy rozwiązania” od „rozwiązanie nie istnieje”;
+- jeśli problem wymaga dalszego badania, komunikować to wprost;
+- używać tego formatu okresowo, nie w każdym kolejnym poście;
+- reakcję odbiorców traktować jako sygnał zainteresowania, nie jako samodzielny dowód adopcji.
+
+### Kandydat po poście #5 — Controlled Undo
+
+Roboczy hook:
+
+> **Makra w Excelu są nieodwracalne? Nie zawsze.**
+
+Kandydat jest oparty na istniejącym evidence ExcelForge. W repozytorium produktu istnieją dwa zawężone prototypy:
+- `src/vba/EF_RemovePolishCharactersUndo_v1.bas`;
+- `src/vba/EF_ReplaceFormulasWithValuesUndo_v1B.bas`.
+
+Testy i ograniczenia są zapisane w `ExcelForge-Evidence/Evidence/Development Journals/EF-DJ-2026-08-22_Controlled-Undo-Validation.md`.
+
+Kluczowe zastrzeżenie dla przyszłej publikacji: **Undo nie jest uniwersalną właściwością każdego makra.** Jest możliwe wtedy, gdy ExcelForge potrafi świadomie zapisać i wiernie odtworzyć potrzebny stan sprzed operacji.
+
+Status: **kandydat redakcyjny**, nie zatwierdzona publikacja #6. Nie przypisywać ID PUB ani terminu bez osobnej decyzji.
+
 ## Lifecycle and history
 
 One channel-specific post has **one Markdown file**. Edit that file through
