@@ -1,14 +1,14 @@
 # ExcelForge — Social Publications Working Plan
 
-> **Status:** WORKING / NOT YET PUBLISHED  
-> **Checkpoint:** 2026-11-03  
+> **Status:** PUBLICATION SET A — OWNER GO / READY FOR SCHEDULING  
+> **Checkpoint updated:** 2026-11-04  
 > This file records current publication and visual-production decisions. It is not a product-model document and does not change Guardian/ExcelForge requirements.
 
 ## Publication set A — 06 / 10 / 13 November 2026
 
 ### 2026-11-06 — orientation: row vs column
 
-**Working FB/IG copy — frozen for fresh review**
+**Final FB/IG copy — OWNER GO**
 
 Te same dane można prezentować na różne sposoby.
 
@@ -31,7 +31,7 @@ Wiersz czy kolumna?
 
 Czasem narzędzie powinno po prostu oddać decyzję użytkownikowi.
 
-**Graphic concept — concept PASS, final canonicalization pending**
+**Graphic — OWNER GO / final publication asset approved**
 - common series layout;
 - headline direction: **„Wiersz czy kolumna?”**
 - secondary line: **„Te same dane. Różny układ.”**
@@ -39,15 +39,12 @@ Czasem narzędzie powinno po prostu oddać decyzję użytkownikowi.
 - left: same information arranged/selected as a column;
 - right: same information arranged/selected as a row;
 - identical semantic data in both views;
-- illustration/layout frozen after acceptance;
-- final asset still requires canonical EF Block, canonical palette and controlled typography;
-- headline weight preference: lighter / semibold, not heavy bold.
 
 ---
 
 ### 2026-11-10 — data reading vs user intent
 
-**Working FB/IG copy — frozen for fresh review**
+**Final FB/IG copy — OWNER GO**
 
 Narzędzie może poprawnie odczytać dane, a intencja użytkownika może nadal pozostać nieznana.
 
@@ -66,7 +63,7 @@ Użytkownik powinien określać cel.
 
 Poprawne odczytanie danych nie oznacza poprawnego odczytania intencji.
 
-**Graphic concept — concept PASS, final canonicalization pending**
+**Graphic — OWNER GO / final publication asset approved**
 - common series layout;
 - headline direction: **„Jakie dane wybierasz?”**
 - secondary line: **„Pojedynczą wartość, zakres czy całą tabelę?”**
@@ -75,14 +72,12 @@ Poprawne odczytanie danych nie oznacza poprawnego odczytania intencji.
 - middle: selected data range;
 - front: single selected value;
 - sheets should be large enough to remain legible at social-feed size;
-- final asset still requires canonical EF Block, canonical palette and controlled typography;
-- headline weight preference: lighter / semibold, not heavy bold.
 
 ---
 
 ### 2026-11-13 — scope boundaries
 
-**Working FB/IG copy — frozen for fresh review**
+**Final FB/IG copy — OWNER GO**
 
 Nie zawsze potrzebujemy lepszego rozpoznawania danych przez narzędzie. Czasem ważniejsze jest precyzyjne określenie zakresu jego działania.
 
@@ -103,7 +98,7 @@ Czasem większa kontrola nie wymaga bardziej złożonej automatyzacji.
 
 Wymaga lepiej określonych granic.
 
-**Graphic concept — concept PASS, final canonicalization pending**
+**Graphic — OWNER GO / final publication asset approved**
 - common series layout;
 - preferred direction: one large spreadsheet, not a complex multi-step diagram;
 - one clearly highlighted working range;
@@ -111,8 +106,28 @@ Wymaga lepiej określonych granic.
 - small distinction between **„zakres działania”** and **„poza zakresem”**;
 - headline direction: **„Zakres ma znaczenie.”**
 - secondary direction: **„Czasem lepiej określić granice niż próbować rozpoznać wszystko.”**
-- final asset still requires canonical EF Block, canonical palette and controlled typography;
-- headline weight preference: lighter / semibold, not heavy bold.
+
+
+## Final asset manifest — Publication set A
+
+Owner decision on 2026-11-04: **#1 GO / #2 GO / #3 GO**.
+
+Publication-ready source files prepared at 1080 × 1080:
+
+| Date | Publication | Canonical filename | SHA-256 |
+| --- | --- | --- | --- |
+| 2026-11-06 | Wiersz czy kolumna? | `ExcelForge_2026-11-06_Wiersz-czy-kolumna_1080.png` | `ea353b4512bf476b9dbf92ca4203229edbaeaba66fe1da61f0409e5a9078b1e5` |
+| 2026-11-10 | Jakie dane wybierasz? | `ExcelForge_2026-11-10_Jakie-dane-wybierasz_1080.png` | `5417c9beae13a0c18e86411ea2348af4630dc1f3fe8a25b18517dfaddfb8b00b` |
+| 2026-11-13 | Zakres ma znaczenie. | `ExcelForge_2026-11-13_Zakres-ma-znaczenie_1080.png` | `7c58c471d584d8f81e03306160cff2f1f62d2a58c88495112b686eac59882b42` |
+
+These hashes identify the exact approved PNG snapshots produced in the 2026-11-04 session and should be used to verify any repository/archive copy.
+
+### Visual decision record
+
+- #1 remains the cleanest reference/master for the series.
+- #2 was iterated after the first series review because the cascading-sheet layout was visually less ordered than #1 and #3. Final GO uses one large sheet on the left and two sheets on the right, calmer callout backgrounds and only the three primary labels: `Zakres danych`, `Cała tabela`, `Pojedyncza wartość`.
+- #3 retains the single-large-sheet concept with a clearly selected working range and muted data outside the range.
+- Series typography remains deliberately lighter than generator-default heavy bold; visual priority is clarity and calmness rather than maximum headline weight.
 
 ## Channel adaptation
 
@@ -196,9 +211,11 @@ Final assessment after the full promotion period should distinguish:
 
 ## Next checkpoint
 
-On the next working session:
-1. reread the three FB/IG texts with fresh eyes;
-2. review the three graphics as one visual set;
-3. decide **3× GO** or identify only necessary corrections;
-4. finalize canonical logo/colors/typography without regenerating accepted illustrations;
-5. then prepare LinkedIn company and LinkedIn personal adaptations.
+Publication set A visual and FB/IG copy review is complete: **3× GO**.
+
+Next work:
+1. schedule/publish 06.11, 10.11 and 13.11 using the exact approved assets;
+2. prepare LinkedIn company adaptations;
+3. prepare LinkedIn personal adaptations;
+4. continue Publication set B (16.11 / 19.11 / 23.11);
+5. evaluate the Meta promotion experiment after the full test period.
