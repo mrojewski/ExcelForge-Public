@@ -45,7 +45,7 @@ expected_external_links = {
     'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1_1_Windows_Instalacja_Pilot_PL_rev1_0_FINAL_v2.pdf',
     'https://github.com/mrojewski/ExcelForge-Public/releases/download/guardian-g1-1-pilot/ExcelForge_Guardian_G1_1_macOS_Instalacja_Pilot_PL_rev1_0_FINAL_v2.pdf',
 }
-expected_local_links = {'licencja.html', 'prywatnosc.html', 'en/index.html'}
+expected_local_links = {'licencja.html', 'prywatnosc.html', 'en/index.html', 'demo/'}
 for tag, attrs in page.elements:
     if tag == 'a':
         target = attrs.get('href', '')
@@ -55,7 +55,8 @@ for tag, attrs in page.elements:
         elif target.startswith('mailto:'):
             assert target.split('?')[0] == 'mailto:support@excelforge.eu', f'Unexpected mail link: {target}'
         elif target in expected_local_links:
-            assert (DOCS / target).is_file(), f'Missing local link: {target}'
+            page_path = DOCS / (target + 'index.html' if target.endswith('/') else target)
+            assert page_path.is_file(), f'Missing local link: {target}'
         else:
             assert target in expected_external_links, f'Unexpected active link: {target}'
         assert 'download' not in attrs
