@@ -74,7 +74,7 @@ allowed_external = {
     WINDOWS_GUIDE,
     MACOS_GUIDE,
 }
-allowed_local = {'../index.html', 'terms.html', 'privacy.html'}
+allowed_local = {'../index.html', 'terms.html', 'privacy.html', 'demo/'}
 for tag, attrs in en_page.elements:
     if tag == 'a':
         target = attrs.get('href', '')
@@ -84,7 +84,8 @@ for tag, attrs in en_page.elements:
         elif target.startswith('mailto:'):
             assert target.split('?')[0] == 'mailto:support@excelforge.eu', f'Unexpected mail link: {target}'
         elif target in allowed_local:
-            assert (EN / target).resolve().is_file(), f'Missing EN local link: {target}'
+            page_path = EN / (target + 'index.html' if target.endswith('/') else target)
+            assert page_path.is_file(), f'Missing EN local link: {target}'
         else:
             assert target in allowed_external, f'Unexpected EN link: {target}'
     if tag == 'script' and attrs.get('src') == CLOUDFLARE_BEACON_URL:
