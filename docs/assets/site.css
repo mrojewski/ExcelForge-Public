@@ -501,6 +501,16 @@ h3 {
   padding:32px;
   min-width:0
 }
+.sample-download-card {
+  grid-column:1 / -1;
+}
+.sample-download-card .card-label {
+  margin-bottom:12px;
+}
+.sample-download-card .download-actions {
+  max-width:420px;
+  margin-top:20px;
+}
 .card-label {
   font-size:12px;
   font-weight:650;
