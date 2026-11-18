@@ -502,7 +502,8 @@ h3 {
   min-width:0
 }
 .sample-download-card {
-  grid-column:1 / -1;
+  width:100%;
+  margin-top:24px;
 }
 .sample-download-card .card-label {
   margin-bottom:12px;
